@@ -1,1 +1,1 @@
-import styled from 'st'
+import styled from "styled-components";
