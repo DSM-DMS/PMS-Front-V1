@@ -1,10 +1,6 @@
 import React from "react";
 import * as S from "./style";
 
-/* const schoolList = () => {
-	
-} */
-
 const Category = () => {
   return (
     //카테고리 묶는 컴포넌트
@@ -13,10 +9,12 @@ const Category = () => {
       <S.CategoryItem>
         {/* 학교소식 */}
         <S.SchoolInfo>
-          <S.Title>학교소식</S.Title>
-          <S.ButtonItem>학교행사</S.ButtonItem>
-          <S.ButtonItem>가정통신문</S.ButtonItem>
-          <S.InfoList>대덕어쩌고 저쩌고</S.InfoList>
+          <div className="container">
+            <S.Title>학교소식</S.Title>
+            <S.ButtonItem>학교행사</S.ButtonItem>
+            <S.ButtonItem>가정통신문</S.ButtonItem>
+            <S.InfoList>대덕어쩌고 저쩌고</S.InfoList>
+          </div>
         </S.SchoolInfo>
         {/* 동아리 소개  */}
         <S.ClubInfo></S.ClubInfo>

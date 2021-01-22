@@ -8,7 +8,6 @@ const MainWrapper = styled.div`
 
 const CodingImg = styled.div`
   background-image: url(${MainBackground});
-  //background-size: 100%;
   width: 100%;
   height: 100%;
   background-repeat: no-repeat;
@@ -21,11 +20,19 @@ const CodingImg = styled.div`
     color: white;
   }
   p {
-    margin: 10px;
+    margin: 20px;
+    font-weight: 100;
+    font-size : 25px
   }
-  .SchoolTitle p:first-child {
+  .SchoolTitle p:nth-child(2) {
     font-size: 35px;
     font-weight: 600;
+  }
+  .bottomLine {
+    width: 220px;
+    height: 5px;
+    background: #ffffff;
+    border-radius: 5px;
   }
 `;
 
@@ -35,7 +42,7 @@ const CategoryWrapper = styled.div`
   top: 30%;
   margin: 0 auto;
   width: 70%;
-  height: 600px;
+  height: 575px;
 `;
 
 const CategoryItem = styled.div`
@@ -49,7 +56,11 @@ const CategoryItemBottom = styled(CategoryItem)`
   height: 55%;
 `;
 
-const Title = styled.div``;
+//카테고리 타이틀
+const Title = styled.div`
+  font-size: 18px;
+  margin-bottom: 10px;
+`;
 
 const ButtonItem = styled.div``;
 
@@ -79,14 +90,24 @@ const StudentInfo = styled(SchoolInfo)`
   background-color: #70c0fd;
 `;
 
-const TodayMeals = styled.div``;
+const TodayMeals = styled(ClubInfo)`
+  background-color: #4775b2;
+`;
 
-const InfoWrapper  = styled.div``;
+const InfoWrapper = styled.div`
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+`;
 
-const DeveloperInfo = styled.div``;
+const DeveloperInfo = styled.div`
+  height: 50%;
+  background-color: #92b5f9;
+`;
 
-const PMSInfo = styled.div``;
-
+const PMSInfo = styled(DeveloperInfo)`
+  background-color: #2e3451;
+`;
 
 export {
   MainWrapper,
@@ -106,6 +127,4 @@ export {
   InfoWrapper,
   DeveloperInfo,
   PMSInfo,
-
-
 };
