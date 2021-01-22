@@ -6,6 +6,7 @@ const Header = styled.div`
   width: 100%;
   height: 60px;
   background-color: rgba(1, 4, 3, 0.27);
+  z-index: 1;
 `;
 
 const Nav = styled.div`
