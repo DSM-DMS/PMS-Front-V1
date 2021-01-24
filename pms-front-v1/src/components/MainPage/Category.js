@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import * as S from "./style";
 
 const Category = () => {
+  const [buttonColor, setButtonColor] = useState("none");
+  const [buttonFont, setButtonFont] = useState("white");
+
+  const buttonClickHandler = () => {
+    console.log("확인");
+    setButtonColor("white");
+    setButtonFont("#d37c7c");
+  };
+
   return (
     //카테고리 묶는 컴포넌트
     <S.CategoryWrapper>
@@ -11,9 +20,31 @@ const Category = () => {
         <S.SchoolInfo>
           <div className="container">
             <S.Title>학교소식</S.Title>
-            <S.ButtonItem>학교행사</S.ButtonItem>
-            <S.ButtonItem>가정통신문</S.ButtonItem>
-            <S.InfoList>대덕어쩌고 저쩌고</S.InfoList>
+            <S.ButtonItem>
+              <input
+                type="radio"
+                className="button"
+                onClick={buttonClickHandler}
+                style={{ background: buttonColor, color: buttonFont }}
+                placeholder="학교행사"
+              />
+              <div
+                className="button"
+                /* onClick={buttonClickHandler}
+                style={{ background: buttonColor, color: buttonFont }} */
+              >
+                <label>
+                  <span>가정통신문</span>
+                </label>
+              </div>
+            </S.ButtonItem>
+            <S.InfoList>
+              <li>대덕어쩌고 저쩌고</li>
+              <li>대덕어쩌고 저쩌고</li>
+              <li>대덕어쩌고 저쩌고</li>
+              <li>대덕어쩌고 저쩌고</li>
+              <li>대덕어쩌고 저쩌고</li>
+            </S.InfoList>
           </div>
         </S.SchoolInfo>
         {/* 동아리 소개  */}
