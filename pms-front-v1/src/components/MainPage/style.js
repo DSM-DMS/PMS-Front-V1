@@ -22,7 +22,7 @@ const CodingImg = styled.div`
   p {
     margin: 20px;
     font-weight: 100;
-    font-size : 25px
+    font-size: 25px;
   }
   .SchoolTitle p:nth-child(2) {
     font-size: 35px;
@@ -58,18 +58,45 @@ const CategoryItemBottom = styled(CategoryItem)`
 
 //카테고리 타이틀
 const Title = styled.div`
-  font-size: 18px;
+  font-size: 20px;
   margin-bottom: 10px;
+  //font-weight: 600;
 `;
 
-const ButtonItem = styled.div``;
+const ButtonItem = styled.div`
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 30px;
+  border-bottom: 0.5px solid white;
 
-const InfoList = styled.div``;
+  .button {
+    background-color: ${({ buttonColor }) => buttonColor};
+    border: 1px solid white;
+    > span {
+      color: ${({ buttonFont }) => buttonFont};
+      font-size: 14px;
+      margin: 5px;
+      font-weight: 100;
+    }
+  }
+`;
+
+const InfoList = styled.ul`
+  list-style: none;
+
+  > li {
+    font-size: 16px;
+    margin-top: 7px;
+  }
+`;
 
 const SchoolInfo = styled.div`
   background-color: #d37c7c;
   width: 40%;
   height: 100%;
+  color: white;
 `;
 
 const ClubInfo = styled(SchoolInfo)`
