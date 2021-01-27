@@ -23,20 +23,18 @@ const Category = () => {
             <S.ButtonItem>
               <input
                 type="radio"
-                className="button"
-                onClick={buttonClickHandler}
-                style={{ background: buttonColor, color: buttonFont }}
-                placeholder="학교행사"
+                nape="box-control"
+                id="control1"
+                hidden
+                checked
               />
-              <div
-                className="button"
-                /* onClick={buttonClickHandler}
-                style={{ background: buttonColor, color: buttonFont }} */
-              >
-                <label>
-                  <span>가정통신문</span>
-                </label>
-              </div>
+              <input type="radio" nape="box-control" id="control1" hidden />
+              <label for="control1">
+                <span>가정통신문</span>
+              </label>
+              <label for="control2">
+                <span>학교 소식</span>
+              </label>
             </S.ButtonItem>
             <S.InfoList>
               <li>대덕어쩌고 저쩌고</li>
@@ -48,9 +46,26 @@ const Category = () => {
           </div>
         </S.SchoolInfo>
         {/* 동아리 소개  */}
-        <S.ClubInfo></S.ClubInfo>
+        <S.ClubInfo>
+          <div className="container club">
+            <S.Title>동아리 소개</S.Title>
+            <div className="club-info">
+              <span>대덕소프트웨어마이스터고등학교에</span>
+              <span>동아리를 소개합니다</span>
+            </div>
+          </div>
+        </S.ClubInfo>
         {/* 취업처 소개 */}
-        <S.CompanyInfo></S.CompanyInfo>
+        <S.CompanyInfo>
+          <div className="container club">
+            <S.Title>취업처 소개</S.Title>
+            <div className="club-info">
+              <span>대덕소프트웨어마이스터고등학교에</span>
+              <span>취업처를 소개합니다</span>
+            </div>
+            <div className="club-img"></div>
+          </div>
+        </S.CompanyInfo>
         {/* DMS 구경하기 */}
         <S.DMSInfo></S.DMSInfo>
       </S.CategoryItem>

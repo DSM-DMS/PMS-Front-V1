@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { MainBackground, DMS } from "../../assets/index";
+import { MainBackground, DMS, Company } from "../../assets/index";
 
 const MainWrapper = styled.div`
   width: 100%;
@@ -15,7 +15,7 @@ const CodingImg = styled.div`
   .SchoolTitle {
     position: relative;
     top: 18%;
-    width: 70%;
+    width: 78%;
     margin: 0 auto;
     color: white;
   }
@@ -41,7 +41,7 @@ const CategoryWrapper = styled.div`
   position: relative;
   top: 30%;
   margin: 0 auto;
-  width: 70%;
+  width: 78%;
   height: 575px;
 `;
 
@@ -60,7 +60,7 @@ const CategoryItemBottom = styled(CategoryItem)`
 const Title = styled.div`
   font-size: 20px;
   margin-bottom: 10px;
-  //font-weight: 600;
+  font-weight: 600;
 `;
 
 const ButtonItem = styled.div`
@@ -102,6 +102,24 @@ const SchoolInfo = styled.div`
 const ClubInfo = styled(SchoolInfo)`
   background-color: #56ad77;
   width: 20%;
+
+  .club {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .club-info {
+    margin: 15px ;
+    font-size : 14px;
+    display : flex;
+    flex-direction: column;
+    justify-content : center;
+  }
+  .club-img{
+    width : 88.7%;
+    height : 120px;
+    background-image : url(${Company});
+  }
 `;
 
 const CompanyInfo = styled(ClubInfo)`

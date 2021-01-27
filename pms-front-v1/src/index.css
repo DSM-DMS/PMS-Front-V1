@@ -1,5 +1,7 @@
 * {
+  cursor: pointer;
   font-family: "Noto Sans KR", sans-serif;
+  font-weight: lighter;
   margin: 0;
   padding: 0;
 }
@@ -9,7 +11,10 @@ code {
     monospace;
 }
 
-.container {
-  width: 1400px;
+.container{
+  width: 90%;
+  height: 80%;
   border: 1px solid red;
+  margin: 5%;
+  margin-top: 25px;
 }
