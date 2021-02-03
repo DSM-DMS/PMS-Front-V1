@@ -1,1 +1,1 @@
-export { default as Hedaer } from './Header/Header';
+export { default as MainPage } from './MainPage/MainPage';

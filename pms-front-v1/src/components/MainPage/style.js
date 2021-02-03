@@ -10,7 +10,7 @@ import {
 
 const MainWrapper = styled.div`
   width: 100%;
-  height: 1550px;
+  height: 1350px;
 `;
 
 const CodingImg = styled.div`
