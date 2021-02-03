@@ -1,12 +1,12 @@
 import React from 'react';
 import { Switch, Route } from "react-router-dom";
 
-import { Header } from '../components/index';
+import { MainPage } from '../components/index';
 
 function UserRouter() {
     return(
         <Switch>
-            <Route path="/" component={} exact/>
+            <Route path="/" component={MainPage} exact/>
         </Switch>
     )
 }
