@@ -4,6 +4,7 @@ import * as S from "./style";
 
 import BackgroundTitle from "../BackgroundTitle";
 import SocialButton from "./SocialButton";
+import Footer from "../footer/Footer";
 
 function Login() {
   return (
@@ -37,6 +38,7 @@ function Login() {
           </S.LoginInput>
         </S.MainItem>
       </S.LoginWrapper>
+      <Footer></Footer>
     </S.MainWrapper>
   );
 }
