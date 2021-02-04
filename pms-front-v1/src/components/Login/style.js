@@ -54,6 +54,7 @@ const LoginInput = styled.div`
 `;
 
 const InputWrapper = styled.div`
+  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -61,6 +62,7 @@ const InputWrapper = styled.div`
   border-right: 1.5px solid #9e9e9e;
 
   input {
+    padding-left: 5px;
     margin: 0 20px 15px 0;
     border: 0;
     border-bottom: 1px solid #c8c8c8;
