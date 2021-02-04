@@ -18,7 +18,7 @@ const Nav = styled.div`
   align-items: center;
   justify-content: space-around;
   flex-direction: row;
-  margin-right: 14%;
+  margin-right: 9%;
 `;
 
 const Link = styled.span`
