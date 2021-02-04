@@ -18,12 +18,13 @@ const Nav = styled.div`
   align-items: center;
   justify-content: space-around;
   flex-direction: row;
-  margin-right: 14%;
+  margin-right: 9%;
+
+  a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+  }
 `;
 
-const Link = styled.span`
-  color: white;
-  font-size: 16px;
-`;
-
-export { Header, Nav, Link };
+export { Header, Nav };
