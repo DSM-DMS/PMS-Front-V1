@@ -11,7 +11,7 @@ const Header = styled.div`
 
 const Nav = styled.div`
   margin: 0 auto;
-  width: 25%;
+  width: 34%;
   height: 100%;
   float: right;
   display: flex;
