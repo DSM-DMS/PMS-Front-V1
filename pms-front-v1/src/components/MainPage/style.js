@@ -1,9 +1,16 @@
 import styled from "styled-components";
-import { MainBackground, DMS, Company } from "../../assets/index";
+import {
+  MainBackground,
+  DMS,
+  Company,
+  MyPage,
+  Info,
+  PMS,
+} from "../../assets/index";
 
 const MainWrapper = styled.div`
   width: 100%;
-  height: 1550px;
+  height: 1350px;
 `;
 
 const CodingImg = styled.div`
@@ -11,6 +18,7 @@ const CodingImg = styled.div`
   width: 100%;
   height: 100%;
   background-repeat: no-repeat;
+  overflow: auto;
 
   .SchoolTitle {
     position: relative;
@@ -26,7 +34,7 @@ const CodingImg = styled.div`
   }
   .SchoolTitle p:nth-child(2) {
     font-size: 35px;
-    font-weight: 600;
+    font-weight: 700;
   }
   .bottomLine {
     width: 220px;
@@ -57,14 +65,22 @@ const CategoryItemBottom = styled(CategoryItem)`
 `;
 
 //카테고리 타이틀
-const Title = styled.div`
+const Title = styled.span`
   font-size: 20px;
-  margin-bottom: 10px;
-  font-weight: 600;
+  margin-bottom: 15px;
+  font-weight: 500;
+`;
+
+const Font14 = styled.span`
+  font-size: 14px;
+  margin: 0 auto;
+`;
+
+const SubTitle = styled.span`
+  font-size: 18px;
 `;
 
 const ButtonItem = styled.div`
-  margin-top: 10px;
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -109,16 +125,17 @@ const ClubInfo = styled(SchoolInfo)`
     align-items: center;
   }
   .club-info {
-    margin: 15px ;
-    font-size : 14px;
-    display : flex;
+    font-size: 14px;
+    display: flex;
     flex-direction: column;
-    justify-content : center;
+    justify-content: center;
   }
-  .club-img{
-    width : 88.7%;
-    height : 120px;
-    background-image : url(${Company});
+  .club-img {
+    margin: 0 auto;
+    width: 88.5%;
+    height: 120px;
+    background-size: cover;
+    background-image: url(${Company});
   }
 `;
 
@@ -128,16 +145,54 @@ const CompanyInfo = styled(ClubInfo)`
 
 const DMSInfo = styled(ClubInfo)`
   background-image: url(${DMS});
+  background-size: cover;
   background-repeat: no-repeat;
 `;
 
+//두번째 카테고리 시작
 const StudentInfo = styled(SchoolInfo)`
   background-color: #70c0fd;
+
+  .student-info-img {
+    margin: 16px 10px 0;
+    width: 400px;
+    height: 147px;
+    background-image: url(${MyPage});
+  }
+`;
+
+const LoginButton = styled.button`
+  width: 200px;
+  height: 40px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  color: #70c0fd;
+  margin-top: 25px;
 `;
 
 const TodayMeals = styled(ClubInfo)`
   background-color: #4775b2;
 `;
+
+const MealMenu = styled.div`
+  border-radius: 10px;
+  width: 80%;
+  height: 75%;
+  background: #4b6d9a 0% 0% no-repeat padding-box;
+  display: flex;
+  justify-content: center;
+
+  & ul {
+    height: 80%;
+    margin: 20px;
+    font-size: 18px;
+    overflow: auto;
+  }
+`;
+
+const MealButton = styled.div``;
 
 const InfoWrapper = styled.div`
   width: 40%;
@@ -148,10 +203,27 @@ const InfoWrapper = styled.div`
 const DeveloperInfo = styled.div`
   height: 50%;
   background-color: #92b5f9;
+  display: flex;
+  flex-direction: row;
+
+  .creators-info {
+    width: 30%;
+    height: 80%;
+    background-image: url(${PMS});
+    background-size: auto;
+  }
 `;
 
 const PMSInfo = styled(DeveloperInfo)`
   background-color: #2e3451;
+
+  .pms-img {
+    margin: 6%;
+    width: 16.8%;
+    height: 63%;
+    background-image: url(${PMS});
+    background-size: auto;
+  }
 `;
 
 export {
@@ -161,6 +233,8 @@ export {
   CategoryItem,
   CategoryItemBottom,
   Title,
+  Font14,
+  SubTitle,
   ButtonItem,
   InfoList,
   SchoolInfo,
@@ -168,7 +242,10 @@ export {
   CompanyInfo,
   DMSInfo,
   StudentInfo,
+  LoginButton,
   TodayMeals,
+  MealMenu,
+  MealButton,
   InfoWrapper,
   DeveloperInfo,
   PMSInfo,
