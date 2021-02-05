@@ -5,6 +5,9 @@ function MonthCalender() {
   return (
     <S.MiddleWrapper>
       <S.Title>2020년 2월 5일</S.Title>
+      <S.CalenderMain>
+        
+      </S.CalenderMain>
     </S.MiddleWrapper>
   );
 }
