@@ -134,6 +134,13 @@ const MealButton = styled.button`
   font-size: 16px;
 `;
 
+const CalenderMain = styled.div`
+margin: 15px;
+  width : 700px;
+  height : 630px;
+  border: 1px solid red;
+`;
+
 export {
   MainWrapper,
   CalenderWrapper,
@@ -148,4 +155,5 @@ export {
   MealsList,
   Nav,
   MealButton,
+  CalenderMain,
 };
