@@ -37,6 +37,16 @@ const MiddleWrapper = styled(SideWrapper)`
   width: 53%;
 `;
 
+//리스트들 묶음 스크롤 기능 있음
+const ListWrapper = styled.div`
+  margin-bottom: 20px;
+  height: 100%auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: auto;
+`;
+
 const Event = styled.div`
   margin: 15px;
   width: 80%;
@@ -73,11 +83,55 @@ const EventDate = styled.div`
   font: normal normal normal 14px/14px Noto Sans CJK KR;
   letter-spacing: 0px;
   color: #7d7d7d;
-  display:flex;
-  align-items:center;
-  span{
-    margin:15px;
+  display: flex;
+  align-items: center;
+  span {
+    margin: 16px;
   }
+`;
+
+//오늘의 급식
+const SelectData = styled.span`
+  font-size: 16px;
+  font-weight: 600;
+  margin: 15px;
+`;
+
+const MealsList = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 25px;
+  width: 80%;
+  height: 280px;
+  background: #f6f6f6 0% 0% no-repeat padding-box;
+  border-radius: 30px;
+  overflow: auto;
+  span {
+    margin: 3px;
+    font-size: 18px;
+  }
+`;
+
+const Nav = styled.div`
+  margin-bottom: 10px;
+  width: 80%;
+  height: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+`;
+
+const MealButton = styled.button`
+  width: 53px;
+  height: 28px;
+  background-color: ${({ mealButtonColor }) => mealButtonColor};
+  color: ${({ mealButtonFontColor }) => mealButtonFontColor};
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  font-size: 16px;
 `;
 
 export {
@@ -86,7 +140,12 @@ export {
   SideWrapper,
   Title,
   MiddleWrapper,
+  ListWrapper,
   Event,
   EventName,
   EventDate,
+  SelectData,
+  MealsList,
+  Nav,
+  MealButton,
 };
