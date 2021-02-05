@@ -6,6 +6,7 @@ const BackgroundWrapper = styled.div`
   height: 300px;
   background-image: url(${MainBackground});
   background-size: auto;
+  overflow:auto;
 `;
 
 const TitleWrapper = styled.div`
@@ -17,6 +18,7 @@ const TitleWrapper = styled.div`
 `;
 
 const TopLine = styled.div`
+  display: ${({ title }) => title};
   width: 220px;
   height: 5px;
   background: #ffffff;
@@ -24,6 +26,7 @@ const TopLine = styled.div`
 `;
 
 const Title = styled.p`
+display: ${({ title }) => title};
   margin: 20px 0;
   font-size: 35px;
   font-weight: 700;

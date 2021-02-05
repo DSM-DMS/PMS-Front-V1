@@ -6,12 +6,14 @@ import * as S from "./BackgrounTitleStyle";
 import Header from "./Header/Header";
 
 function BackgroundTitle(props) {
+  const title = props.title === "" ? "none" : "block";
+
   return (
     <S.BackgroundWrapper>
       <Header />
       <S.TitleWrapper>
-        <S.TopLine />
-        <S.Title>{props.title}</S.Title>
+        <S.TopLine title={props.title} style={{ display: title }} />
+        <S.Title style={{ display: title }}>{props.title}</S.Title>
       </S.TitleWrapper>
     </S.BackgroundWrapper>
   );
