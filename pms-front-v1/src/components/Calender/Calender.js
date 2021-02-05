@@ -10,7 +10,7 @@ import TodayMeals from "./TodayMeals";
 function Calender() {
   return (
     <S.MainWrapper>
-      <BackgroundTitle />
+      <BackgroundTitle title="" />
       <S.CalenderWrapper>
         <MonthEvent />
         <MonthCalender />
