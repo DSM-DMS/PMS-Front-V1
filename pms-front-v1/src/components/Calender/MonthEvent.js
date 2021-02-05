@@ -7,7 +7,9 @@ function MonthEvent() {
   return (
     <S.SideWrapper>
       <S.Title>이달의 행사</S.Title>
-      <EventList />
+      <S.ListWrapper>
+        <EventList />
+      </S.ListWrapper>
     </S.SideWrapper>
   );
 }

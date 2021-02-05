@@ -19,10 +19,6 @@ const EventList = () => {
       eventName: "의무귀가",
       eventDate: "12/17",
     },
-    {
-      eventName: "의무귀가",
-      eventDate: "12/17",
-    },
   ];
 
   return (
