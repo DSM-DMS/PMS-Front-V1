@@ -8,110 +8,108 @@ import InfoItemBox from "../InfoItemBox";
 
 function ClubInfo() {
   const clubList = [
-		{
+    {
       clubImg: "/PMS",
       title: "DMS",
       explanation: "기숙사 지원 시스템을 만들고 있습니다.",
-			resolution : " DSM학생들의 원활한 기숙사 생활을 위하여!",
+      resolution: " DSM학생들의 원활한 기숙사 생활을 위하여!",
     },
-		{
+    {
       clubImg: "/PMS",
       title: "DMS",
       explanation: "기숙사 지원 시스템을 만들고 있습니다.",
-			resolution : " DSM학생들의 원활한 기숙사 생활을 위하여!",
+      resolution: " DSM학생들의 원활한 기숙사 생활을 위하여!",
     },
-		{
+    {
       clubImg: "/PMS",
       title: "DMS",
       explanation: "기숙사 지원 시스템을 만들고 있습니다.",
-			resolution : " DSM학생들의 원활한 기숙사 생활을 위하여!",
+      resolution: " DSM학생들의 원활한 기숙사 생활을 위하여!",
     },
-		{
+    {
       clubImg: "/PMS",
       title: "DMS",
       explanation: "기숙사 지원 시스템을 만들고 있습니다.",
-			resolution : " DSM학생들의 원활한 기숙사 생활을 위하여!",
+      resolution: " DSM학생들의 원활한 기숙사 생활을 위하여!",
     },
-		{
+    {
       clubImg: "/PMS",
       title: "DMS",
       explanation: "기숙사 지원 시스템을 만들고 있습니다.",
-			resolution : " DSM학생들의 원활한 기숙사 생활을 위하여!",
+      resolution: " DSM학생들의 원활한 기숙사 생활을 위하여!",
     },
-		{
+    {
       clubImg: "/PMS",
       title: "DMS",
       explanation: "기숙사 지원 시스템을 만들고 있습니다.",
-			resolution : " DSM학생들의 원활한 기숙사 생활을 위하여!",
+      resolution: " DSM학생들의 원활한 기숙사 생활을 위하여!",
     },
-		{
+    {
       clubImg: "/PMS",
       title: "DMS",
       explanation: "기숙사 지원 시스템을 만들고 있습니다.",
-			resolution : " DSM학생들의 원활한 기숙사 생활을 위하여!",
+      resolution: " DSM학생들의 원활한 기숙사 생활을 위하여!",
     },
-		{
+    {
       clubImg: "/PMS",
       title: "DMS",
       explanation: "기숙사 지원 시스템을 만들고 있습니다.",
-			resolution : " DSM학생들의 원활한 기숙사 생활을 위하여!",
+      resolution: " DSM학생들의 원활한 기숙사 생활을 위하여!",
     },
-		{
+    {
       clubImg: "/PMS",
       title: "DMS",
       explanation: "기숙사 지원 시스템을 만들고 있습니다.",
-			resolution : " DSM학생들의 원활한 기숙사 생활을 위하여!",
+      resolution: " DSM학생들의 원활한 기숙사 생활을 위하여!",
     },
-		{
+    {
       clubImg: "/PMS",
       title: "DMS",
       explanation: "기숙사 지원 시스템을 만들고 있습니다.",
-			resolution : " DSM학생들의 원활한 기숙사 생활을 위하여!",
+      resolution: " DSM학생들의 원활한 기숙사 생활을 위하여!",
     },
-		{
+    {
       clubImg: "/PMS",
       title: "DMS",
       explanation: "기숙사 지원 시스템을 만들고 있습니다.",
-			resolution : " DSM학생들의 원활한 기숙사 생활을 위하여!",
+      resolution: " DSM학생들의 원활한 기숙사 생활을 위하여!",
     },
-		{
+    {
       clubImg: "/PMS",
       title: "DMS",
       explanation: "기숙사 지원 시스템을 만들고 있습니다.",
-			resolution : " DSM학생들의 원활한 기숙사 생활을 위하여!",
+      resolution: " DSM학생들의 원활한 기숙사 생활을 위하여!",
     },
-		{
+    {
       clubImg: "/PMS",
       title: "DMS",
       explanation: "기숙사 지원 시스템을 만들고 있습니다.",
-			resolution : " DSM학생들의 원활한 기숙사 생활을 위하여!",
+      resolution: " DSM학생들의 원활한 기숙사 생활을 위하여!",
     },
-		{
+    {
       clubImg: "/PMS",
       title: "DMS",
       explanation: "기숙사 지원 시스템을 만들고 있습니다.",
-			resolution : " DSM학생들의 원활한 기숙사 생활을 위하여!",
+      resolution: " DSM학생들의 원활한 기숙사 생활을 위하여!",
     },
-		{
+    {
       clubImg: "/PMS",
       title: "DMS",
       explanation: "기숙사 지원 시스템을 만들고 있습니다.",
-			resolution : " DSM학생들의 원활한 기숙사 생활을 위하여!",
+      resolution: " DSM학생들의 원활한 기숙사 생활을 위하여!",
     },
-		{
+    {
       clubImg: "/PMS",
       title: "DMS",
       explanation: "기숙사 지원 시스템을 만들고 있습니다.",
-			resolution : " DSM학생들의 원활한 기숙사 생활을 위하여!",
+      resolution: " DSM학생들의 원활한 기숙사 생활을 위하여!",
     },
-		{
+    {
       clubImg: "/PMS",
       title: "DMS",
       explanation: "기숙사 지원 시스템을 만들고 있습니다.",
-			resolution : " DSM학생들의 원활한 기숙사 생활을 위하여!",
+      resolution: " DSM학생들의 원활한 기숙사 생활을 위하여!",
     },
-		
-   
   ];
   return (
     <S.InfoMainWrapper>
@@ -123,7 +121,7 @@ function ClubInfo() {
             <InfoItemBox
               title={club.title}
               explanation={club.explanation}
-							resolution={club.resolution}
+              resolution={club.resolution}
             />
           );
         })}
