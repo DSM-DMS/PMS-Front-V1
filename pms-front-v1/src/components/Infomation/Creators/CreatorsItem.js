@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import * as S from "./style";
-import { PMS } from "../../assets/index";
+import * as S from "../style";
+//import { PMS } from "../../assets/index";
 
 const creatorsList = [
   {
