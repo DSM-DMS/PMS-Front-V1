@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useState } from "react";
 import * as S from "./style";
 import { PMS } from "../../assets/index";
 
@@ -51,10 +51,11 @@ const creatorsList = [
 function CreatorsItem() {
   const [selected, setSelected] = useState(0);
 
+  //마우스 가져다 놓을시 색 변경
   const ItemMouseOverHandler = (row) => {
     setSelected(row.id);
   };
-
+  //마우스 아웃시 기본색
   const ItemMouseOutHandler = () => {
     setSelected(0);
   };
