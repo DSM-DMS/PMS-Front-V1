@@ -6,6 +6,7 @@ const Header = () => {
   return (
     <S.Header>
       <S.Nav>
+        <Link to="/calender">행사일정</Link>
         <Link to="/">학교소식</Link>
         <Link to="/">소개</Link>
         <Link to="/">마이페이지</Link>
