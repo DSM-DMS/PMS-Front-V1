@@ -11,6 +11,21 @@ code {
     monospace;
 }
 
+::-webkit-scrollbar {
+  width: 2px;
+  /* 스크롤바의 width */
+}
+::-webkit-scrollbar-track {
+  background-color: white;
+  /* 스크롤바의 전체 */
+}
+::-webkit-scrollbar-thumb {
+  background-color: #0000006e;
+  border-radius: 50px;
+  /* 스크롤바 색 */
+}
+
+/* 카테고리 컨테이너 */
 .container {
   width: 90%;
   height: 80%;
@@ -18,6 +33,15 @@ code {
   margin-top: 25px;
   display: flex;
   flex-direction: column;
+}
+
+.footer-container {
+  padding: 30px;
+  margin: 0 auto;
+  width: 78%;
+  display: flex;
+  flex-direction: column;
+  color: #9e9e9e;
 }
 
 .club {
@@ -38,13 +62,4 @@ code {
   display: flex;
   flex-direction: column;
   color: white;
-}
-
-.footer-container {
-  padding: 30px;
-  margin: 0 auto;
-  width: 78%;
-  display: flex;
-  flex-direction: column;
-  color: #9e9e9e;
 }
