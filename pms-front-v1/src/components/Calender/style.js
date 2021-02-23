@@ -134,11 +134,10 @@ const MealButton = styled.button`
   font-size: 16px;
 `;
 
-const CalenderMain = styled.div`
-margin: 15px;
-  width : 700px;
-  height : 630px;
-  border: 1px solid red;
+const CalenderMain = styled.tbody`
+  margin: 15px;
+  width: 95%;
+  height: 670px;
 `;
 
 export {
