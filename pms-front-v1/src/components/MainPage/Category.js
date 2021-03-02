@@ -1,30 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import * as S from "./style";
 import { useHistory } from "react-router-dom";
 
+const btnLists = [{ id: 1 }, { id: 2 }, { id: 3 }];
+
 const Category = () => {
   const history = useHistory();
+  const [select, setSelect] = useState(0);
 
   const ClubClickHandler = () => {
-    history.push('club-info');
-  }
-  
+    history.push("club-info");
+  };
+
   const CompanyClickHandler = () => {
-    history.push('company-info');
-  }
+    history.push("company-info");
+  };
 
   const DMSClickHandler = () => {
-    history.href('/https://www.dsm-dms.com/');
-  }
+    history.href("/https://www.dsm-dms.com/");
+  };
 
   const LoginBtnClick = () => {
     history.push("/login");
   };
 
-
   const DeveloperClickHandler = () => {
     history.push("/creators-info");
   };
+
+  //급식버튼 중복 선택 안되게 하는 함수
+  const mealBtnHandler = (list) => {
+    setSelect(list.id);
+  };
+
   return (
     //카테고리 묶는 컴포넌트
     <S.CategoryWrapper>
@@ -109,9 +117,16 @@ const Category = () => {
               </ul>
             </S.MealMenu>
             <S.MealButton>
-              <input type="radio" name="morning"></input>
-              <input type="radio" name="afternoon"></input>
-              <input type="radio" name="저녁"></input>
+              {btnLists.map((list) => (
+                <div
+                  style={{
+                    backgroundColor: list.id === select ? "gray" : "white",
+                    borderRadius: "50px",
+                  }}
+                  key={list.id}
+                  onClick={() => mealBtnHandler(list)}
+                ></div>
+              ))}
             </S.MealButton>
           </div>
         </S.TodayMeals>

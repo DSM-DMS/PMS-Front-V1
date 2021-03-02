@@ -14,11 +14,31 @@ const MainWrapper = styled.div`
 `;
 
 const CodingImg = styled.div`
-  background-image: url(${MainBackground});
+  //background-image: url(${MainBackground});
   width: 100%;
   height: 100%;
   background-repeat: no-repeat;
-  overflow: auto;
+  overflow: hidden;
+
+  .School-img {
+    display: flex;
+    flex-direction: row;
+    > img {
+      /*     width: 100%;
+      height: 100%; */
+      position: absolute;
+      top: -155px;
+      overflow: hidden;
+    }
+  }
+
+  .slide-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    top: 530px;
+  }
 
   .SchoolTitle {
     position: relative;
@@ -47,7 +67,7 @@ const CodingImg = styled.div`
 //카테고리
 const CategoryWrapper = styled.div`
   position: relative;
-  top: 30%;
+  top: 28%;
   margin: 0 auto;
   width: 78%;
   height: 575px;
@@ -192,7 +212,20 @@ const MealMenu = styled.div`
   }
 `;
 
-const MealButton = styled.div``;
+const MealButton = styled.div`
+  width: 100px;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+
+  > div {
+    width: 10px;
+    height: 10px;
+    border-radius: 50px;
+  }
+`;
 
 const InfoWrapper = styled.div`
   width: 40%;
