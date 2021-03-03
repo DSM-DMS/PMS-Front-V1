@@ -7,6 +7,35 @@ const Header = styled.div`
   height: 60px;
   background-color: rgba(1, 4, 3, 0.27);
   z-index: 1;
+
+  .nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 100px;
+    height: 100px;
+    border: 1px solid red;
+    background-color: rgba(1,4,3,0.5);
+    z-index: 2;
+    position: absolute;
+    top: 60px;
+    right: 443px;
+
+    > li {
+      list-style: none;
+    }
+}
+    a {
+      text-decoration: none;
+      color: white;
+    }
+  }
+
+  .link {
+    text-decoration: none;
+    color: white;
+  }
 `;
 
 const Nav = styled.ul`
