@@ -48,7 +48,7 @@ const CodingImg = styled.div`
     color: white;
   }
   p {
-    margin: 20px;
+    margin-bottom: 20px;
     font-weight: 100;
     font-size: 25px;
   }
@@ -61,6 +61,9 @@ const CodingImg = styled.div`
     height: 5px;
     background: #ffffff;
     border-radius: 5px;
+  }
+  .typist{
+    font-size : 20px;
   }
 `;
 
