@@ -7,6 +7,23 @@ function TodayMeals() {
   //버튼이 선택되었는지 확인하는 변수
   const [selected, setSelected] = useState(0);
 
+  //오늘의 날짜 
+  const date = new Date();
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+
+  function getTodayLabel() {
+    
+    var week = new Array('일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일');
+    
+    var today = new Date().getDay();
+    var todayLabel = week[today];
+    
+    return todayLabel;
+  }
+
+  console.log(getTodayLabel(date))
+
   //오늘의 급식 더미데이터
   const meals = [
     {
@@ -47,7 +64,7 @@ function TodayMeals() {
   return (
     <S.SideWrapper>
       <S.Title>오늘의 급식</S.Title>
-      <S.SelectData>2월 5일</S.SelectData>
+      <S.SelectData>{month}월 {day}일 {getTodayLabel(date)}</S.SelectData>
       <S.MealsList>
         {meals.map((meal) => {
           return <span>{meal.menu}</span>;
