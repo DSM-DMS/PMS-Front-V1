@@ -34,10 +34,6 @@ function MainPage() {
     sliderRef.current.style.transform = `translateX(-${currentSlider}00%)`;
   }, [currentSlider]);
 
-  setInterval(() => {
-    setFixed("flex");
-  }, 1000);
-
   return (
     <S.MainWrapper>
       <Header />
@@ -58,7 +54,7 @@ function MainPage() {
             창의성과 인간미를 품은 소트프웨어 영재의 육성
           </Typist>
         </div>
-        <Category style={{ position: fixed }} />
+        <Category style={{margin : "50px"}} />
       </S.CodingImg>
       <MainPageFooter />
     </S.MainWrapper>

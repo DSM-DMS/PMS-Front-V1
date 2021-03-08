@@ -62,8 +62,8 @@ const CodingImg = styled.div`
     background: #ffffff;
     border-radius: 5px;
   }
-  .typist{
-    font-size : 20px;
+  .typist {
+    font-size: 20px;
   }
 `;
 
@@ -110,11 +110,8 @@ const ButtonItem = styled.div`
   height: 30px;
   border-bottom: 0.5px solid white;
 
-  .button {
-    background-color: ${({ buttonColor }) => buttonColor};
-    border: 1px solid white;
-    > span {
-      color: ${({ buttonFont }) => buttonFont};
+ > span {
+   padding : 3px;
       font-size: 14px;
       margin: 5px;
       font-weight: 100;

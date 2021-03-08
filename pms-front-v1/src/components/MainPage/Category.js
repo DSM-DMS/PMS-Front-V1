@@ -4,9 +4,16 @@ import { useHistory } from "react-router-dom";
 
 const btnLists = [{ id: 1 }, { id: 2 }, { id: 3 }];
 
+const colorLists = [
+  { id: 1, name: "가정통신문" },
+  { id: 2, name: "공지사항" },
+];
+
 const Category = () => {
   const history = useHistory();
   const [select, setSelect] = useState(0);
+  const [btnSelect, setBtnSelect] = useState(0);
+  const [buttonColor, setButtonColor] = useState("none");
 
   const ClubClickHandler = () => {
     history.push("club-info");
@@ -33,6 +40,10 @@ const Category = () => {
     setSelect(list.id);
   };
 
+  const backgroundColor = (list) => {
+    setBtnSelect(list.id);
+  };
+
   return (
     //카테고리 묶는 컴포넌트
     <S.CategoryWrapper>
@@ -43,20 +54,22 @@ const Category = () => {
           <div className="container">
             <S.Title>학교소식</S.Title>
             <S.ButtonItem>
-              <input
-                type="radio"
-                nape="box-control"
-                id="control1"
-                hidden
-                checked
-              />
-              <input type="radio" nape="box-control" id="control1" hidden />
-              <label for="control1">
-                <span>가정통신문</span>
-              </label>
-              <label for="control2">
-                <span>학교소식</span>
-              </label>
+              {colorLists.map((color) => (
+                <>
+                  <label
+                    style={{
+                      backgroundColor:
+                        color.id === btnSelect ? "white" : "#d37c7c",
+                      color: color.id === btnSelect ? "#d37c7c" : "white",
+                      marginRight : "5px",
+                    }}
+                    key={color.id}
+                    onClick={() => backgroundColor(color)}
+                  >
+                    <span>{color.name}</span>
+                  </label>
+                </>
+              ))}
             </S.ButtonItem>
             <S.InfoList>
               <li>대덕어쩌고 저쩌고</li>
