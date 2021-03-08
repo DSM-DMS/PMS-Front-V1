@@ -1,50 +1,58 @@
 import React, { useState } from "react";
 import * as S from "../style";
-//import { StarImg } from "../../assets/index";
+import {
+  은빈,
+  지우,
+  정빈,
+  고은,
+  재원,
+  진우,
+  은별,
+} from "../../../assets/index";
 
 const creatorsList = [
   {
     id: 1,
-    img: "PMS",
+    img: 정빈,
     name: "김정빈",
     field: "Server",
   },
   {
     id: 2,
-    img: "PMS",
+    img: 지우,
     name: "정지우",
     field: "Server",
   },
   {
     id: 3,
-    img: "PMS",
+    img: 은빈,
     name: "강은빈",
-    field: "Front",
+    field: "Front-End",
   },
   {
     id: 4,
-    img: "PMS",
+    img: 진우,
     name: "이진우",
-    field: "Server",
+    field: "Front-End",
   },
   {
     id: 5,
-    img: "PMS",
+    img: 고은,
     name: "정고은",
-    field: "ios",
+    field: "iOS PM",
     className: "margin-none",
   },
   {
     id: 6,
-    img: "PMS",
+    img: 재원,
     name: "김재원",
-    field: "Server",
+    field: "Android",
   },
   {
     id: 7,
-    img: "",
+    img: 은별,
     name: "이은별",
-    field: "Server",
+    field: "Android",
   },
 ];
 
@@ -70,12 +78,12 @@ function CreatorsItem() {
             key={creator.id}
             style={{
               marginRight: styleMargin,
-              backgroundColor: creator.id === selected ? "#C8C8C8" : "white",
+              backgroundColor: creator.id === selected ? "#ccd8e6" : "white",
             }}
             onMouseOver={() => ItemMouseOverHandler(creator)}
             onMouseOut={() => ItemMouseOutHandler()}
           >
-            <img src="/"></img>
+            <img src={creator.img} alt="프로필사진"></img>
             <span>{creator.name}</span>
             <span>{creator.field}</span>
           </S.InfoItem>

@@ -38,8 +38,15 @@ const InfoItem = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
   span {
     margin: 15px;
+  }
+
+  img{
+    width : 160px;
+    height : 160px;
+    border-radius : 100px;
   }
 `;
 
