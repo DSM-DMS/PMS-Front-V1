@@ -14,27 +14,30 @@ const Header = styled.div`
     align-items: center;
     justify-content: space-around;
     width: 100px;
-    height: 100px;
-    border: 1px solid red;
-    background-color: rgba(1,4,3,0.5);
+    height: 130px;
+    background-color: white;
+    //background-color: rgba(1,4,3,0.5);
     z-index: 2;
     position: absolute;
     top: 60px;
     right: 443px;
+    box-shadow: 0px 5px 5px #00000029;
 
     > li {
       list-style: none;
     }
-}
-    a {
-      text-decoration: none;
-      color: white;
-    }
+  }
+  a {
+    text-decoration: none;
+    color: black;
   }
 
   .link {
     text-decoration: none;
     color: white;
+  }
+  a :hover{
+    color : red;
   }
 `;
 
