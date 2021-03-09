@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import * as S from "./style";
 import { useHistory } from "react-router-dom";
+import ClubCategory from "./ClubCategory";
 
 const btnLists = [{ id: 1 }, { id: 2 }, { id: 3 }];
 
@@ -12,7 +13,7 @@ const colorLists = [
 const Category = () => {
   const history = useHistory();
   const [select, setSelect] = useState(0);
-  const [btnSelect, setBtnSelect] = useState(0);
+  const [btnSelect, setBtnSelect] = useState(1);
   const [buttonColor, setButtonColor] = useState("none");
 
   const ClubClickHandler = () => {
@@ -54,22 +55,21 @@ const Category = () => {
           <div className="container">
             <S.Title>학교소식</S.Title>
             <S.ButtonItem>
-              {colorLists.map((color) => (
-                <>
+              <div className="button-cover">
+                {colorLists.map((color) => (
                   <label
                     style={{
                       backgroundColor:
                         color.id === btnSelect ? "white" : "#d37c7c",
                       color: color.id === btnSelect ? "#d37c7c" : "white",
-                      marginRight : "5px",
                     }}
                     key={color.id}
                     onClick={() => backgroundColor(color)}
                   >
                     <span>{color.name}</span>
                   </label>
-                </>
-              ))}
+                ))}
+              </div>
             </S.ButtonItem>
             <S.InfoList>
               <li>대덕어쩌고 저쩌고</li>
@@ -81,15 +81,7 @@ const Category = () => {
           </div>
         </S.SchoolInfo>
         {/* 동아리 소개  */}
-        <S.ClubInfo onClick={ClubClickHandler}>
-          <div className="container club">
-            <S.Title>동아리 소개</S.Title>
-            <div className="club-info">
-              <S.Font14>대덕소프트웨어마이스터고등학교</S.Font14>
-              <S.Font14>다양한 동아리를 소개합니다</S.Font14>
-            </div>
-          </div>
-        </S.ClubInfo>
+        <ClubCategory onClick={ClubClickHandler} />
         {/* 취업처 소개 */}
         <S.CompanyInfo onClick={CompanyClickHandler}>
           <div className="container club">

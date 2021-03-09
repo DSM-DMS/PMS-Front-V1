@@ -110,12 +110,25 @@ const ButtonItem = styled.div`
   height: 30px;
   border-bottom: 0.5px solid white;
 
- > span {
-   padding : 3px;
-      font-size: 14px;
-      margin: 5px;
-      font-weight: 100;
-    }
+  .button-cover {
+    border: 0.5px solid white;
+    margin: -1px;
+    width: 200px;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+
+  label {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  > span {
+    font-size: 14px;
+    font-weight: 100;
+    padding: 5px;
   }
 `;
 
@@ -138,6 +151,8 @@ const SchoolInfo = styled.div`
 const ClubInfo = styled(SchoolInfo)`
   background-color: #56ad77;
   width: 20%;
+  display: flex;
+  flex-direction: column;
 
   .club {
     display: flex;
@@ -259,6 +274,22 @@ const PMSInfo = styled(DeveloperInfo)`
   }
 `;
 
+const ClubAnimation = styled.div`
+  width: 104%;
+  min-height: 80px;
+  display: flex;
+  flex-direction: row;
+  margin: 30px;
+  transition:0.7s;
+
+  img {
+    width: 80px;
+    height: 80px;
+    border-radius: 100px;
+    margin: 3px;
+  }
+`;
+
 export {
   MainWrapper,
   CodingImg,
@@ -282,4 +313,5 @@ export {
   InfoWrapper,
   DeveloperInfo,
   PMSInfo,
+  ClubAnimation,
 };
