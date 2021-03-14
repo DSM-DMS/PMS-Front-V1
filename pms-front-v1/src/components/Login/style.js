@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { FaceBook, kakao, Google } from "../../assets/index";
 
 const MainWrapper = styled.div`
-  height: 1230px;
+  height: 1100px;
   background: #f6f6f6 0% 0% no-repeat padding-box;
 `;
 
@@ -11,7 +11,7 @@ const LoginWrapper = styled.div`
   top: -7%;
   margin: 0 auto;
   width: 78%;
-  height: 800px;
+  height: 680px;
   background-color: white;
   box-shadow: 0px 5px 5px #00000029;
   display: flex;
@@ -19,7 +19,7 @@ const LoginWrapper = styled.div`
   align-items: center;
 `;
 
-const MainItem = styled.div`
+const MainItem = styled.form`
   margin: auto 0;
   width: 600px;
   height: 400px;
