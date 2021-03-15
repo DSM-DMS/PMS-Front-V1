@@ -5,7 +5,6 @@ const InfoItemBox = (props) => {
   //모달 클릭시 나타나게 해줌
   const ItemBoxClickHandler = () => {
     props.setModal("flex");
-    console.log("ㅇㅇ");
   };
 
   return (

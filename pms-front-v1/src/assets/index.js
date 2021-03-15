@@ -10,3 +10,4 @@ export { default as FaceBook } from "./FaceBook.png";
 export { default as kakao } from "./kakao.svg";
 export { default as Google } from "./Google.svg";
 export { default as Earth } from "./Earth.jpg";
+

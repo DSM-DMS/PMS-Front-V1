@@ -38,8 +38,15 @@ const InfoItem = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
   span {
     margin: 15px;
+  }
+
+  img{
+    width : 160px;
+    height : 160px;
+    border-radius : 100px;
   }
 `;
 
@@ -234,7 +241,7 @@ const InfoWrapper = styled.div`
     flex-direction: row;
     margin-top: 40px;
     //overflow: hidden;
-    width: 100%;
+    width: 400%;
     > img {
       border: 1px solid red;
       width: 200px;

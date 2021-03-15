@@ -19,7 +19,7 @@ const LoginWrapper = styled.div`
   align-items: center;
 `;
 
-const MainItem = styled.div`
+const MainItem = styled.form`
   margin: auto 0;
   width: 600px;
   height: 400px;
