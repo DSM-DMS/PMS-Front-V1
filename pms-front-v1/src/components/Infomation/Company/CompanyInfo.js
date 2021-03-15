@@ -10,84 +10,83 @@ import ClubDetailModal from "../ClubDetailModal";
 function CompanyInfo() {
   const companyList = [
     {
-      id : 1,
+      id: 1,
       companyName: "NAVER",
       explanation: "검색광고 공식대행사 전문 채용관",
       resolution: "창의적인 도전을 멈추지 않는 인재를 채용합니다.",
     },
     {
-      id : 1,
+      id: 1,
       companyName: "NAVER",
       explanation: "검색광고 공식대행사 전문 채용관",
       resolution: "창의적인 도전을 멈추지 않는 인재를 채용합니다.",
     },
     {
-      id : 1,
+      id: 1,
       companyName: "NAVER",
       explanation: "검색광고 공식대행사 전문 채용관",
       resolution: "창의적인 도전을 멈추지 않는 인재를 채용합니다.",
     },
     {
-      id : 1,
+      id: 1,
       companyName: "NAVER",
       explanation: "검색광고 공식대행사 전문 채용관",
       resolution: "창의적인 도전을 멈추지 않는 인재를 채용합니다.",
     },
     {
-      id : 1,
+      id: 1,
       companyName: "NAVER",
       explanation: "검색광고 공식대행사 전문 채용관",
       resolution: "창의적인 도전을 멈추지 않는 인재를 채용합니다.",
     },
     {
-      id : 1,
+      id: 1,
       companyName: "NAVER",
       explanation: "검색광고 공식대행사 전문 채용관",
       resolution: "창의적인 도전을 멈추지 않는 인재를 채용합니다.",
     },
     {
-      id : 1,
+      id: 1,
       companyName: "NAVER",
       explanation: "검색광고 공식대행사 전문 채용관",
       resolution: "창의적인 도전을 멈추지 않는 인재를 채용합니다.",
     },
     {
-      id : 1,
+      id: 1,
       companyName: "NAVER",
       explanation: "검색광고 공식대행사 전문 채용관",
       resolution: "창의적인 도전을 멈추지 않는 인재를 채용합니다.",
     },
     {
-      id : 1,
+      id: 1,
       companyName: "NAVER",
       explanation: "검색광고 공식대행사 전문 채용관",
       resolution: "창의적인 도전을 멈추지 않는 인재를 채용합니다.",
     },
     {
-      id : 1,
+      id: 1,
       companyName: "NAVER",
       explanation: "검색광고 공식대행사 전문 채용관",
       resolution: "창의적인 도전을 멈추지 않는 인재를 채용합니다.",
     },
     {
-      id : 1,
+      id: 1,
       companyName: "NAVER",
       explanation: "검색광고 공식대행사 전문 채용관",
       resolution: "창의적인 도전을 멈추지 않는 인재를 채용합니다.",
     },
     {
-      id : 1,
+      id: 1,
       companyName: "NAVER",
       explanation: "검색광고 공식대행사 전문 채용관",
       resolution: "창의적인 도전을 멈추지 않는 인재를 채용합니다.",
     },
     {
-      id : 1,
+      id: 1,
       companyName: "NAVER",
       explanation: "검색광고 공식대행사 전문 채용관",
       resolution: "창의적인 도전을 멈추지 않는 인재를 채용합니다.",
     },
-    
   ];
   const [modal, setModal] = useState("none");
 
@@ -98,7 +97,11 @@ function CompanyInfo() {
 
   return (
     <>
-      <ClubDetailModal modal={modal} ModalClose={ModalClose} />
+      <ClubDetailModal
+        modal={modal}
+        ModalClose={ModalClose}
+        titleName="취업처 소개"
+      />
       <S.InfoMainWrapper>
         <BackgroundTitle title="" />
         <InfoHeader title="취업처 소개" placeholder="취업처를 입력해주세요" />
