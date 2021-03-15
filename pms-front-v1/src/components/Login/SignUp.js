@@ -7,7 +7,7 @@ import BackgroundTitle from "../BackgroundTitle";
 import SocialButton from "./SocialButton";
 import Footer from "../footer/Footer";
 
-function SignUp({ onSubmit }) {
+function SignUp() {
   const [inputs, setInputs] = useState({
     name: "",
     email: "",
@@ -26,8 +26,25 @@ function SignUp({ onSubmit }) {
     });
   };
 
-  const handleSubmit = (e) => {
+  //회원가입
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    try {
+      await request(
+        "post",
+        "user",
+        {},
+        {
+          name,
+          email,
+          password,
+        }
+      );
+    } catch (e) {
+      alert("이메일을 다시 확인해주세요");
+      console.log(e);
+    }
 
     setInputs({
       name: "",
@@ -38,25 +55,6 @@ function SignUp({ onSubmit }) {
 
     console.log(inputs);
   };
-
-  /*   const SignUp = async (e) => {
-    try {
-      const { data } = await request(
-        "post",
-        "user",
-        {},
-        {
-          email,
-          name,
-          password,
-        }
-      );
-      console.log(e.target.value);
-    } catch (e) {
-      alert("이메일을 다시 확인해주세요");
-      console.log(e);
-    }
-  }; */
 
   return (
     <S.MainWrapper>
@@ -70,7 +68,7 @@ function SignUp({ onSubmit }) {
           </S.Title>
           {/* 로그인 입력창 */}
           <S.LoginInput>
-            <S.InputWrapper onKeyUp={SignUp}>
+            <S.InputWrapper /* onKeyUp={SignUp} */>
               <input
                 onChange={onChange}
                 name="name"
