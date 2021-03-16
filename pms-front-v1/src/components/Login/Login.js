@@ -30,7 +30,7 @@ function Login() {
     try {
       await request(
         "post",
-        "auth",
+        "/auth",
         { Authorization: `Bearer ${localStorage.getItem("access-token")}` },
         {
           email,

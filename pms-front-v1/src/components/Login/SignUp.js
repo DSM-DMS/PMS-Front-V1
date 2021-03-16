@@ -6,6 +6,7 @@ import { request } from "../../utils/axios/axios";
 import BackgroundTitle from "../BackgroundTitle";
 import SocialButton from "./SocialButton";
 import Footer from "../footer/Footer";
+import axios from "axios";
 
 function SignUp() {
   const [inputs, setInputs] = useState({
@@ -31,21 +32,24 @@ function SignUp() {
     e.preventDefault();
 
     try {
-      await request(
-        "post",
-        "user",
-        {},
-        {
-          name,
-          email,
-          password,
-        }
-      );
+      await request("post", "/user", "", {
+        email,
+        name,
+        password,
+      });
     } catch (e) {
       alert("이메일을 다시 확인해주세요");
       console.log(e);
     }
-
+    /* try {
+      await axios.post("http://api.smooth-bear.live/user", {
+        email: email,
+        name: name,
+        password: password,
+      });
+    } catch (e) {
+      alert(e);
+    } */
     setInputs({
       name: "",
       email: "",
