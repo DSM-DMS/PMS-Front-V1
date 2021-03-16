@@ -41,7 +41,7 @@ function TodayMeals() {
       const { data } = await requestJW(
         "get",
         `event/meal/${TodayDate}`,
-        { Authorization: `Bearer ${localStorage.getItem("access-token")}` },
+       /*  { Authorization: `Bearer ${localStorage.getItem("access-token")}` }, */
         {}
       );
       setTodayMeals(data);
