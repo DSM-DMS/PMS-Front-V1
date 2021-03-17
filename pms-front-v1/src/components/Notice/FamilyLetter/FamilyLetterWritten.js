@@ -1,17 +1,17 @@
 import React from "react";
-import * as S from "./style";
+import * as S from "../style";
 import BackgroundTitle from '../BackgroundTitle'
 import Footer from '../footer/Footer'
 import {ReactComponent as Profile} from '../../assets/Prifile.svg'
 
-function NoticeWritten(){
+function FamilyLetterWritten(){
     return(
         <S.MainWrittenWrapper>
-            <BackgroundTitle title="공지사항"></BackgroundTitle>
+            <BackgroundTitle title="가정통신문"></BackgroundTitle>
             <S.MainWrittenItemWrapper>
                 <h3>대덕소프트웨어마이스터고등학교 지방공무원(시설관리직) 대체인력 채용</h3>
                 <S.WrittenInfo>
-                    <div className="infotype">공지사항</div>
+                    <div className="infotype">가정통신문</div>
                     <div className="infotitle">작성자</div>&nbsp;&nbsp; 이**
                     <div className="infotitle">작성일</div>&nbsp;&nbsp; 2020-01-01
                 </S.WrittenInfo>
@@ -112,4 +112,4 @@ function NoticeWritten(){
     )
 }
 
-export default NoticeWritten;
+export default FamilyLetterWritten;
