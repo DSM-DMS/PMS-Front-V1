@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Close, Earth } from "../../assets/index";
 
 const MainWrapper = styled.div`
   width: 100%;
@@ -10,6 +11,9 @@ const InfoMainWrapper = styled.div`
   width: 100%;
   height: 1430px;
   background: #f6f6f6 0% 0% no-repeat padding-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const CreatorsWrapper = styled.div`
@@ -34,8 +38,15 @@ const InfoItem = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
   span {
     margin: 15px;
+  }
+
+  img{
+    width : 160px;
+    height : 160px;
+    border-radius : 100px;
   }
 `;
 
@@ -83,7 +94,7 @@ const InfoHeaderWrapper = styled.div`
 const ItemBoxWrapper = styled.div`
   position: relative;
   top: -4%;
-  margin: 0 auto;
+  //margin: 0 auto;
   width: 70%;
   height: 800px;
   display: flex;
@@ -125,6 +136,136 @@ const ItemContainer = styled.div`
   }
 `;
 
+const ModalWrapper = styled.div`
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  overflow: hidden;
+  z-index: 2;
+  display: ${({ modal }) => modal};
+  justify-content: center;
+  align-items: center;
+`;
+
+const ModalItem = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  height: 600px;
+  background-color: white;
+  margin: 0 auto;
+  box-shadow: 0px 3px 6px #00000029;
+
+  .title-bar {
+    width: 500px;
+    height: 5px;
+    background: transparent
+      linear-gradient(90deg, #ffe874 0%, #7b1acf 69%, #713eff 100%) 0% 0%
+      no-repeat padding-box;
+  }
+`;
+
+const ModalHeader = styled.div`
+  width: 500px;
+  height: 160px;
+  background-image: url(${Earth});
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .background-cover {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+  }
+
+  .club-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: -15px;
+
+    > span {
+      color: white;
+      font-weight: 600;
+      font-size: 18px;
+      z-index: 2;
+    }
+  }
+  .logo {
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    border-radius: 50px;
+    margin: 10px;
+  }
+
+  .close-img {
+    margin: 10px;
+    width: 30px;
+    height: 30px;
+    background-image: url(${Close});
+    position: relative;
+    top: -16px;
+    right: -231px;
+    z-index: 2;
+  }
+`;
+
+const InfoWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+
+  h3 {
+    margin: 25px;
+    font-weight: 600;
+  }
+
+  .club-img {
+    display: flex;
+    flex-direction: row;
+    margin-top: 40px;
+    //overflow: hidden;
+    width: 400%;
+    > img {
+      border: 1px solid red;
+      width: 200px;
+      height: 200px;
+      margin: 0 24px;
+    }
+  }
+  .button-icon {
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+    > button {
+      width: 50px;
+      height: 20px;
+      margin: 0 10px;
+      color: white;
+      border: none;
+      outline: none;
+      background: #350871 0% 0% no-repeat padding-box;
+      border-radius: 15px;
+    }
+  }
+`;
+
 export {
   MainWrapper,
   InfoMainWrapper,
@@ -134,4 +275,8 @@ export {
   ItemBoxWrapper,
   ItemBox,
   ItemContainer,
+  ModalWrapper,
+  ModalItem,
+  ModalHeader,
+  InfoWrapper,
 };

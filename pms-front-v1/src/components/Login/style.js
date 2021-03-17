@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import { FaceBook, kakao, Google } from "../../assets/index";
 
 const MainWrapper = styled.div`
-  height: 1230px;
+  height: 1100px;
   background: #f6f6f6 0% 0% no-repeat padding-box;
 `;
 
@@ -10,7 +11,7 @@ const LoginWrapper = styled.div`
   top: -7%;
   margin: 0 auto;
   width: 78%;
-  height: 800px;
+  height: 680px;
   background-color: white;
   box-shadow: 0px 5px 5px #00000029;
   display: flex;
@@ -18,7 +19,7 @@ const LoginWrapper = styled.div`
   align-items: center;
 `;
 
-const MainItem = styled.div`
+const MainItem = styled.form`
   margin: auto 0;
   width: 600px;
   height: 400px;
@@ -87,7 +88,6 @@ const InputWrapper = styled.div`
 
   //자동 로그인
   span {
-    margin: 0 0 5px 0;
     font-size: 15px;
   }
 
@@ -114,9 +114,29 @@ const SocialWrapper = styled.div`
 `;
 
 const LoginButton = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 15px;
   width: 240px;
   height: 40px;
-  border: ${({ LoginName }) => LoginName};
+
+  .social-img {
+    width: 48px;
+    height: 40px;
+    background-image: ${({ Socialimg }) => Socialimg};
+  }
+
+  .login-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    width: 100%;
+    height: 98%;
+    text-align: center;
+    background-color: ${({ LoginName }) => LoginName};
+  }
 `;
 
 export {
