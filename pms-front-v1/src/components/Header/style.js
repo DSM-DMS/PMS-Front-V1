@@ -9,21 +9,22 @@ const Header = styled.div`
   z-index: 1;
 `;
 
-const Nav = styled.div`
+const Nav = styled.ul`
   margin: 0 auto;
-  width: 25%;
+  width: 34%;
   height: 100%;
   float: right;
   display: flex;
   align-items: center;
   justify-content: space-around;
   flex-direction: row;
-  margin-right: 14%;
+  margin-right: 9%;
+
+  a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+  }
 `;
 
-const Link = styled.span`
-  color: white;
-  font-size: 16px;
-`;
-
-export { Header, Nav, Link };
+export { Header, Nav };

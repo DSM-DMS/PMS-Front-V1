@@ -2,6 +2,7 @@ import React from "react";
 import * as S from "./style";
 import Header from "../Header/Header";
 import Category from "./Category";
+import MainPageFooter from '../footer/MainPageFooter';
 
 function MainPage() {
   return (
@@ -15,6 +16,7 @@ function MainPage() {
         </div>
         <Category />
       </S.CodingImg>
+      <MainPageFooter/>
     </S.MainWrapper>
   );
 }
