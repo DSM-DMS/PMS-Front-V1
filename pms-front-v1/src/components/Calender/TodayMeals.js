@@ -5,12 +5,13 @@ import EventList from "./EventList";
 import { requestJW } from "../../utils/axios/axios";
 
 function TodayMeals() {
-  //버튼이 선택되었는지 확인하는 변수
+  //버튼이 선택되었는지 확인하는 변
   const [selected, setSelected] = useState(1);
   const [todayMeals, setTodayMeals] = useState([]);
   const [breakfast, setBreakfast] = useState([]);
   const [lunch, setLunch] = useState([]);
   const [dinner, setDinner] = useState([]);
+
 
   //오늘의 날짜
   const date = new Date();
@@ -56,6 +57,7 @@ function TodayMeals() {
       console.log(data.lunch);
       
       console.log(data.dinner);
+
     } catch (e) {
       console.log(e);
     }
