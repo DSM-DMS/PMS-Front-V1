@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Close } from "../../assets/index";
+import { Close, Earth } from "../../assets/index";
 
 const MainWrapper = styled.div`
   width: 100%;
@@ -38,8 +38,15 @@ const InfoItem = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
   span {
     margin: 15px;
+  }
+
+  img{
+    width : 160px;
+    height : 160px;
+    border-radius : 100px;
   }
 `;
 
@@ -132,7 +139,7 @@ const ItemContainer = styled.div`
 const ModalWrapper = styled.div`
   width: 100%;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.3);
   position: fixed;
   top: 0;
   overflow: hidden;
@@ -145,34 +152,118 @@ const ModalWrapper = styled.div`
 const ModalItem = styled.div`
   display: flex;
   flex-direction: column;
-
-  width: 50%;
+  width: 500px;
   height: 600px;
   background-color: white;
   margin: 0 auto;
-  box-shadow: 0px 5px 5px #00000029;
+  box-shadow: 0px 3px 6px #00000029;
+
+  .title-bar {
+    width: 500px;
+    height: 5px;
+    background: transparent
+      linear-gradient(90deg, #ffe874 0%, #7b1acf 69%, #713eff 100%) 0% 0%
+      no-repeat padding-box;
+  }
+`;
+
+const ModalHeader = styled.div`
+  width: 500px;
+  height: 160px;
+  background-image: url(${Earth});
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .background-cover {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+  }
+
+  .club-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: -15px;
+
+    > span {
+      color: white;
+      font-weight: 600;
+      font-size: 18px;
+      z-index: 2;
+    }
+  }
+  .logo {
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    border-radius: 50px;
+    margin: 10px;
+  }
 
   .close-img {
     margin: 10px;
     width: 30px;
     height: 30px;
     background-image: url(${Close});
-    float: right;
+    position: relative;
+    top: -16px;
+    right: -231px;
+    z-index: 2;
+  }
+`;
+
+const InfoWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+
+  h3 {
+    margin: 25px;
+    font-weight: 600;
   }
 
-  .modal-container {
-    width: 95%;
-    height: 530px;
-    border: 1px solid red;
-    margin: 0 auto;
+  .club-img {
+    display: flex;
+    flex-direction: row;
+    margin-top: 40px;
+    //overflow: hidden;
+    width: 400%;
+    > img {
+      border: 1px solid red;
+      width: 200px;
+      height: 200px;
+      margin: 0 24px;
+    }
   }
-
-  .img-slide {
-    width : 50%;
-    height: 300px;
-    border: 1px solid red;
+  .button-icon {
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+    > button {
+      width: 50px;
+      height: 20px;
+      margin: 0 10px;
+      color: white;
+      border: none;
+      outline: none;
+      background: #350871 0% 0% no-repeat padding-box;
+      border-radius: 15px;
+    }
   }
-
 `;
 
 export {
@@ -186,4 +277,6 @@ export {
   ItemContainer,
   ModalWrapper,
   ModalItem,
+  ModalHeader,
+  InfoWrapper,
 };

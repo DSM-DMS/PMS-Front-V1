@@ -5,9 +5,13 @@ import EventList from "./EventList";
 import { requestJW } from "../../utils/axios/axios";
 
 function TodayMeals() {
-  //버튼이 선택되었는지 확인하는 변수
-  const [selected, setSelected] = useState(0);
-  const [todayMeals, setTodayMeals] = useState("");
+  //버튼이 선택되었는지 확인하는 변
+  const [selected, setSelected] = useState(1);
+  const [todayMeals, setTodayMeals] = useState([]);
+  const [breakfast, setBreakfast] = useState([]);
+  const [lunch, setLunch] = useState([]);
+  const [dinner, setDinner] = useState([]);
+
 
   //오늘의 날짜
   const date = new Date();
@@ -41,11 +45,19 @@ function TodayMeals() {
       const { data } = await requestJW(
         "get",
         `event/meal/${TodayDate}`,
-       /*  { Authorization: `Bearer ${localStorage.getItem("access-token")}` }, */
+        { Authorization: `Bearer ${localStorage.getItem("access-token")}` },
         {}
       );
       setTodayMeals(data);
-      console.log(setTodayMeals);
+      setBreakfast(data.breakfast);
+      setLunch(data.lunch);
+      setDinner(data.dinner);
+      console.log(data.breakfast);
+      
+      console.log(data.lunch);
+      
+      console.log(data.dinner);
+
     } catch (e) {
       console.log(e);
     }
@@ -56,20 +68,6 @@ function TodayMeals() {
   }, []);
 
   //오늘의 급식 더미데이터
-  const meals = [
-    {
-      menu: "닭볶음탕",
-    },
-    {
-      menu: "닭볶음탕",
-    },
-    {
-      menu: "닭볶음탕",
-    },
-    {
-      menu: "닭볶음탕",
-    },
-  ];
 
   //중복선택이 안되게 하기 위해 리스트 선언
   const buttonLists = [
@@ -99,8 +97,8 @@ function TodayMeals() {
         {month}월 {day}일 {getTodayLabel(date)}
       </S.SelectData>
       <S.MealsList>
-        {meals.map((meal) => {
-          return <span>{meal.menu}</span>;
+        {breakfast.map((breakfast, index) => {
+          return <span key={index}>{breakfast}</span>;
         })}
       </S.MealsList>
       <S.Nav>

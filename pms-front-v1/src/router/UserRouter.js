@@ -2,6 +2,11 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 
 import {
+  FamilyLetter,
+  Notice,
+  MyPage,
+  FamilyLetterWritten,
+  NoticeWritten,
   MainPage,
   Login,
   SignUp,
@@ -9,12 +14,16 @@ import {
   CreatorsInfo,
   ClubInfo,
   CompanyInfo,
-} from "../components/index";
+} from "../components/index.js";
 
 function UserRouter() {
   return (
     <Switch>
       <Route path="/" component={MainPage} exact />
+      <Route path="/Notice" component={Notice} exact/>
+      <Route path="/MyPage" component={MyPage} exact/>
+      <Route path="/FamilyLetterWritten" component={FamilyLetterWritten} exact/>
+      <Route path="/NoticeWritten" component={NoticeWritten} exact />
       <Route path="/login" component={Login} exact />
       <Route path="/sign-up" component={SignUp} exact />
       <Route path="/calender" component={Calender} exact />
