@@ -5,13 +5,12 @@ import EventList from "./EventList";
 import { requestJW } from "../../utils/axios/axios";
 
 function TodayMeals() {
-  //버튼이 선택되었는지 확인하는 변
+  //버튼이 선택되었는지 확인하는 변수
   const [selected, setSelected] = useState(1);
   const [todayMeals, setTodayMeals] = useState([]);
   const [breakfast, setBreakfast] = useState([]);
   const [lunch, setLunch] = useState([]);
   const [dinner, setDinner] = useState([]);
-
 
   //오늘의 날짜
   const date = new Date();
@@ -45,19 +44,19 @@ function TodayMeals() {
       const { data } = await requestJW(
         "get",
         `event/meal/${TodayDate}`,
-        { Authorization: `Bearer ${localStorage.getItem("access-token")}` },
+        {
+          Authorization: `Bearer ${localStorage.getItem("access-token")}`,
+          /* "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTY0MjI4NjMsInN1YiI6Imt1YjA4MDNAbmF2ZXIuY29tIiwiZXhwIjoxNjE2NDI2NDYzLCJ0eXBlIjoiYWNjZXNzX3Rva2VuIiwicm9sZSI6IlVTRVIifQ.2WZwv6bBI3G21d7UTFvscmdBC2KIP1q_5TGgcvfB6bQ", */
+        },
+
         {}
       );
       setTodayMeals(data);
       setBreakfast(data.breakfast);
       setLunch(data.lunch);
       setDinner(data.dinner);
-      console.log(data.breakfast);
-      
       console.log(data.lunch);
-      
       console.log(data.dinner);
-
     } catch (e) {
       console.log(e);
     }
@@ -89,7 +88,9 @@ function TodayMeals() {
   const MealButtonClickHandler = (row) => {
     setSelected(row.id);
   };
-
+  useEffect(() => {
+    console.log(selected);
+  }, [selected]);
   return (
     <S.SideWrapper>
       <S.Title>오늘의 급식</S.Title>
@@ -97,9 +98,11 @@ function TodayMeals() {
         {month}월 {day}일 {getTodayLabel(date)}
       </S.SelectData>
       <S.MealsList>
-        {breakfast.map((breakfast, index) => {
-          return <span key={index}>{breakfast}</span>;
-        })}
+        {selected === 1
+          ? breakfast.map((i, index) => <span key={index}>{i}</span>)
+          : selected === 2
+          ? lunch.map((i, index) => <span key={index}>{i}</span>)
+          : dinner.map((i, index) => <span key={index}>{i}</span>)}
       </S.MealsList>
       <S.Nav>
         {buttonLists.map((buttonList) => {
