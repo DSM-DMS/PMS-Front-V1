@@ -14,11 +14,29 @@ const MainWrapper = styled.div`
 `;
 
 const CodingImg = styled.div`
-  background-image: url(${MainBackground});
+  //background-image: url(${MainBackground});
   width: 100%;
   height: 100%;
   background-repeat: no-repeat;
-  overflow: auto;
+  overflow: hidden;
+
+  .School-img {
+    display: flex;
+    flex-direction: row;
+    > img {
+      position: absolute;
+      top: -155px;
+      overflow: hidden;
+    }
+  }
+
+  .slide-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    top: 530px;
+  }
 
   .SchoolTitle {
     position: relative;
@@ -28,7 +46,7 @@ const CodingImg = styled.div`
     color: white;
   }
   p {
-    margin: 20px;
+    margin-bottom: 20px;
     font-weight: 100;
     font-size: 25px;
   }
@@ -42,12 +60,15 @@ const CodingImg = styled.div`
     background: #ffffff;
     border-radius: 5px;
   }
+  .typist {
+    font-size: 20px;
+  }
 `;
 
 //카테고리
 const CategoryWrapper = styled.div`
   position: relative;
-  top: 30%;
+  top: 28%;
   margin: 0 auto;
   width: 78%;
   height: 575px;
@@ -87,15 +108,25 @@ const ButtonItem = styled.div`
   height: 30px;
   border-bottom: 0.5px solid white;
 
-  .button {
-    background-color: ${({ buttonColor }) => buttonColor};
-    border: 1px solid white;
-    > span {
-      color: ${({ buttonFont }) => buttonFont};
-      font-size: 14px;
-      margin: 5px;
-      font-weight: 100;
-    }
+  .button-cover {
+    border: 0.5px solid white;
+    margin: -1px;
+    width: 200px;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+
+  label {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  > span {
+    font-size: 14px;
+    font-weight: 100;
+    padding: 5px;
   }
 `;
 
@@ -118,6 +149,8 @@ const SchoolInfo = styled.div`
 const ClubInfo = styled(SchoolInfo)`
   background-color: #56ad77;
   width: 20%;
+  display: flex;
+  flex-direction: column;
 
   .club {
     display: flex;
@@ -192,7 +225,20 @@ const MealMenu = styled.div`
   }
 `;
 
-const MealButton = styled.div``;
+const MealButton = styled.div`
+  width: 100px;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+
+  > div {
+    width: 10px;
+    height: 10px;
+    border-radius: 50px;
+  }
+`;
 
 const InfoWrapper = styled.div`
   width: 40%;
@@ -226,6 +272,22 @@ const PMSInfo = styled(DeveloperInfo)`
   }
 `;
 
+const ClubAnimation = styled.div`
+  width: 104%;
+  min-height: 80px;
+  display: flex;
+  flex-direction: row;
+  margin: 30px;
+  transition:0.7s;
+
+  img {
+    width: 80px;
+    height: 80px;
+    border-radius: 100px;
+    margin: 3px;
+  }
+`;
+
 export {
   MainWrapper,
   CodingImg,
@@ -249,4 +311,5 @@ export {
   InfoWrapper,
   DeveloperInfo,
   PMSInfo,
+  ClubAnimation,
 };

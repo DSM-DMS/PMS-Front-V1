@@ -6,6 +6,7 @@ import * as S from "./BackgrounTitleStyle";
 import Header from "./Header/Header";
 
 function BackgroundTitle(props) {
+  //props 로 "" 빈 값을 주면 display none을 주게됨
   const title = props.title === "" ? "none" : "block";
 
   return (

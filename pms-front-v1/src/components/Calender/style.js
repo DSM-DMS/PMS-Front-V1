@@ -35,6 +35,7 @@ const Title = styled.div`
 
 const MiddleWrapper = styled(SideWrapper)`
   width: 53%;
+  overflow: auto;
 `;
 
 //리스트들 묶음 스크롤 기능 있음
@@ -48,7 +49,7 @@ const ListWrapper = styled.div`
 `;
 
 const Event = styled.div`
-  margin: 15px;
+  margin: 7%;
   width: 80%;
   height: 60px;
   background: #f6f6f6 0% 0% no-repeat padding-box;
@@ -59,8 +60,8 @@ const Event = styled.div`
 `;
 
 const EventName = styled.div`
-  margin: 10px 20px;
-  width: 44%;
+  padding: 10px 20px;
+  width: 158px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -74,7 +75,7 @@ const EventName = styled.div`
   span {
     margin-left: 10px;
     font-size: 14px;
-    //font-weight: 600;
+    font-weight: 600;
   }
 `;
 
@@ -134,11 +135,10 @@ const MealButton = styled.button`
   font-size: 16px;
 `;
 
-const CalenderMain = styled.div`
-margin: 15px;
-  width : 700px;
-  height : 630px;
-  border: 1px solid red;
+const CalenderMain = styled.tbody`
+  margin: 15px;
+  width: 95%;
+  height: 670px;
 `;
 
 export {

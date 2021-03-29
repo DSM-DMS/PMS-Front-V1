@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import * as S from "../style";
-//import { PMS } from "../../assets/index";
+//import { StarImg } from "../../assets/index";
 
 const creatorsList = [
   {
@@ -19,7 +19,7 @@ const creatorsList = [
     id: 3,
     img: "PMS",
     name: "강은빈",
-    field: "Server",
+    field: "Front",
   },
   {
     id: 4,
@@ -42,7 +42,7 @@ const creatorsList = [
   },
   {
     id: 7,
-    img: "PMS",
+    img: "",
     name: "이은별",
     field: "Server",
   },
@@ -75,7 +75,7 @@ function CreatorsItem() {
             onMouseOver={() => ItemMouseOverHandler(creator)}
             onMouseOut={() => ItemMouseOutHandler()}
           >
-            {/* <img src="{creator.img}"></img> */}
+            <img src="/"></img>
             <span>{creator.name}</span>
             <span>{creator.field}</span>
           </S.InfoItem>
