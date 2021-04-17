@@ -8,7 +8,7 @@ function MonthCalender() {
   return (
     <S.MiddleWrapper>
       <S.CalenderMain>
-        <Calendar onChange={onChange} value={value}  />
+        -
       </S.CalenderMain>
     </S.MiddleWrapper>
   );
