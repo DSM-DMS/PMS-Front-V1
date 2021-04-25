@@ -1,7 +1,7 @@
 import React from "react";
 import * as S from "../style";
-import BackgroundTitle from '../BackgroundTitle'
-import Footer from '../footer/Footer'
+import BackgroundTitle from '../../BackgroundTitle'
+import Footer from '../../footer/Footer'
 
 function Notice(){
     return(
@@ -23,12 +23,12 @@ function Notice(){
                         <div className="day">날짜</div>
                     </S.ItemTitle>
                     <S.Item>
-                        <diV className="title">대덕소프트웨어마이스터고 지방공무원(시설관리직) 대체인력 채용 공고 <S.NewItem>NEW</S.NewItem></diV>
+                        <diV className="title">대덕소프트웨어마이스터고 지방공무원(시설관리직) 대체인력 채용 공고 <div className="newItem">NEW</div></diV>
                         <div className="writer">이**</div>
                         <div className="day">2019-12-31</div>
                     </S.Item>
                     <S.Item>
-                        <div className="title">대덕SW마이스터고 행정실무원 대체인력 채용 공고 <S.NewItem>NEW</S.NewItem></div>
+                        <div className="title">대덕SW마이스터고 행정실무원 대체인력 채용 공고 <div className="newItem">NEW</div></div>
                         <div className="writer">이**</div>
                         <div className="day">2019-12-31</div>
                     </S.Item>
