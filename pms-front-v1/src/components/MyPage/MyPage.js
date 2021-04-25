@@ -1,14 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import * as S from "./style";
 import BackgroundTitle from '../BackgroundTitle'
 import Footer from '../footer/Footer'
-import { Profile ,Bike, Home, MealGreen, RightPassword, Triangle, AddChildren } from '../../assets/index'
+import { Profile ,Bike, Home, MealGreen, RightPassword, Triangle, AddChildren, WrongPassword } from '../../assets/index'
 
 
 function MyPage() {
-    let nickName ="이재원";
+    const [nickName, setNickName] = useState("이재원");
     let childrenName ="손채건";
-    let email = "wlsdn5793@gmail.com"
+    const [email, changeEmail] = useState("wlsdn5793@gmail.com");
     return(
         <S.MainWrapper>
             <BackgroundTitle title="마이페이지" />
@@ -31,9 +31,9 @@ function MyPage() {
                             <br/>
                             <div className="changePasswordItem">
                                 <div className="changepassworditeminput"><input placeholder="현재 비밀번호 입력" type="password"></input><img src={RightPassword} alt=""></img></div>
-                                <div className="errormessage">비밀번호가 일치하지 않습니다</div>
+                                <div className="errormessage" id="nowPW-error">비밀번호가 일치하지 않습니다</div>
                                 <div className="changepassworditeminput"><input placeholder="신규 비밀번호 입력" type="password"></input></div>
-                                <div className="changepassworditeminput"><input placeholder="신규 비밀번호 재입력" type="password"></input><img src={RightPassword} alt=""></img></div>
+                                <div className="changepassworditeminput"><input placeholder="신규 비밀번호 재입력" type="password"></input><img src={WrongPassword} alt=""></img></div>
                                 <div className="errormessage">비밀번호가 일치하지 않습니다</div>
                                 <button>확인</button>
                             </div>
@@ -46,7 +46,7 @@ function MyPage() {
                                 <div className="childrenprofile">
                                     <img src={Profile} alt=""></img>
                                 </div>
-                                <div className="childreninformation">
+                                <div className="children-Status">
                                     <h5>{childrenName}</h5>
                                     1학년 1반 11번 - 공통교육과정
                                 </div>
@@ -58,8 +58,8 @@ function MyPage() {
                                         <div className="childrenStatusItemMain">
                                             <div className="checkstatus">
                                                 <ul>
-                                                    <li><b>다벌점 봉사 활동 내역</b></li>
-                                                    <li>상벌점 내역 확인</li>
+                                                    <li id="status1"><b>다벌점 봉사 활동 내역</b></li>
+                                                    <li id="status2">상벌점 내역 확인</li>
                                                 </ul>
                                             </div>
                                             <div className="rightimg">
@@ -73,7 +73,7 @@ function MyPage() {
                                         <div className="childrenStatusItemMain">
                                             <div className="checkstatus">
                                                 <ul>
-                                                    <li>외출 내역 확인</li>
+                                                    <li id="status3">외출 내역 확인</li>
                                                 </ul>
                                             </div>
                                             <div className="rightimg">
@@ -86,8 +86,8 @@ function MyPage() {
                                         <div className="childrenStatusItemMain">
                                             <div className="checkstatus">
                                                 <ul>
-                                                    <li>이번주 잔류 신청 상태</li>
-                                                    <li>주말 급식 신청 여부</li>
+                                                    <li id="status4">이번주 잔류 신청 상태</li>
+                                                    <li id="status5">주말 급식 신청 여부</li>
                                                 </ul>
                                             </div>
                                             <div className="rightimg">
@@ -110,7 +110,7 @@ function MyPage() {
                                     </S.ChildrenStatusItem>
                                 </div>
                                 <div className="childrenStatus right">
-                                    <div className="Title">다벌점 봉사활동 내역 확인</div>
+                                    <div className="Title" id="statusRightTitle">다벌점 봉사활동 내역 확인</div>
                                     <S.Activity>
                                         <div className="TiTle"><h3>1차 봉사 활동</h3>2021-01-01</div>
                                         <div className="point">+15</div>

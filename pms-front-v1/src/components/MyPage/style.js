@@ -1,12 +1,10 @@
  import styled from "styled-components";
-
-
-const MainWrapper = styled.div`
+export const MainWrapper = styled.div`
     width: 100%;
     height: 1130px;
     background-color: #f6f6f6;
 `;
-const MyPageWrapper = styled.div`
+export const MyPageWrapper = styled.div`
     position: relative;
     top: -7%;
     margin: 0 auto;
@@ -40,7 +38,7 @@ const MyPageWrapper = styled.div`
         }
     }
 `;
-const UesrInformation = styled.div`
+export const UesrInformation = styled.div`
     width: 100%;
     height: 30%;
     h4{
@@ -89,7 +87,7 @@ const UesrInformation = styled.div`
             }
     }
 `;
-const ChangePassword = styled.div`
+export const ChangePassword = styled.div`
     width: 100%;
     height: 60%;
     .changePasswordTitle{
@@ -114,6 +112,7 @@ const ChangePassword = styled.div`
         .errormessage{
             color: red;
             font-size: 13px;
+            display: none;
         }
         input{
             width:95%;
@@ -136,7 +135,7 @@ const ChangePassword = styled.div`
         }
     }
 `
-const MyChildren = styled.div`
+export const MyChildren = styled.div`
     background-color: white;
     width: 95%;
     height:10%;
@@ -149,9 +148,9 @@ const MyChildren = styled.div`
         width: 9%;
         height: 80%;
     }
-    .childreninformation{
-        margin-left: 1%;
-        width: 40%;
+    .children-Status{
+        margin-left: 2%;
+        width: 45%;
         height: 80%;
         font-size: 14px;
         font-weight: 600;
@@ -163,7 +162,7 @@ const MyChildren = styled.div`
         font-size: 15px;
     }
 `;
-const ChildrenStatus = styled.div`
+export const ChildrenStatus = styled.div`
     width: 95%;
     height: 83%;
     margin-top: 2%;
@@ -191,7 +190,7 @@ const ChildrenStatus = styled.div`
         }
     }
 `;
-const Activity = styled.div`
+export const Activity = styled.div`
         color:#d37c7c;
         border: 1px solid #de7c7c;
         width: 98%;
@@ -220,7 +219,7 @@ const Activity = styled.div`
             }
         }
 `;
-const ChildrenStatusItem = styled.div`
+export const ChildrenStatusItem = styled.div`
     width: 100%;
     height: 23%;
     background-color: white;
@@ -275,14 +274,3 @@ const ChildrenStatusItem = styled.div`
         }
     }
 `;
-
-export {
-    MyPageWrapper,
-    MainWrapper,
-    UesrInformation,
-    ChangePassword,
-    MyChildren,
-    ChildrenStatus,
-    Activity,
-    ChildrenStatusItem
-};
