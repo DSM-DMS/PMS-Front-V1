@@ -1,31 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 import * as S from "./style";
 import BackgroundTitle from '../BackgroundTitle'
 import Footer from '../footer/Footer'
 import { Profile ,Bike, Home, MealGreen, RightPassword, Triangle, AddChildren, WrongPassword } from '../../assets/index'
+import UserInformation from './UserInformation/UserInformation'
 
 
 function MyPage() {
-    const [nickName, setNickName] = useState("이재원");
-    let childrenName ="손채건";
-    const [email, changeEmail] = useState("wlsdn5793@gmail.com");
     return(
         <S.MainWrapper>
             <BackgroundTitle title="마이페이지" />
             <S.MyPageWrapper>
                 <div className="myPageItem">
                     <div className="itemBox">
-                        <S.UesrInformation>
-                            <h4>개인 정보</h4><br/>
-                            <div className="userInformationItem">
-                                <div className="ItemTitle">이메일</div>
-                                <div className="ItemContent">{email}</div>
-                            </div>
-                            <div className="userInformationItem bot">
-                                <div className="ItemTitle">닉네임</div>
-                                <input value={nickName}></input>
-                            </div>
-                        </S.UesrInformation><br/>
+                        <UserInformation />
+                        <br/>
                         <S.ChangePassword>
                             <div className="changePasswordTitle"><h4>비밀번호 변경</h4>&nbsp;&nbsp;&nbsp;개인정보 보호를 위해 비밀번호는 주기적으로 변경해주세요.</div>
                             <br/>
@@ -47,7 +36,7 @@ function MyPage() {
                                     <img src={Profile} alt=""></img>
                                 </div>
                                 <div className="children-Status">
-                                    <h5>{childrenName}</h5>
+                                    <h5>손채건</h5>
                                     1학년 1반 11번 - 공통교육과정
                                 </div>
                             </S.MyChildren>
