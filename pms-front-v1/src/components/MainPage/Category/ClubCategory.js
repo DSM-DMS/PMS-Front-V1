@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
-import * as S from "./style";
-import { 은빈, 진우, 지우, 은별, 고은 } from "../../assets/index";
+import * as S from "../style";
+import { 은빈, 진우, 지우, 은별, 고은 } from "../../../assets/index";
 
 const clubLists = [
   { id: 1, img: 은빈 },

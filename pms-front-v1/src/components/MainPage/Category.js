@@ -1,27 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import * as S from "./style";
 import { useHistory } from "react-router-dom";
-import ClubCategory from "./ClubCategory";
-
-const btnLists = [{ id: 1 }, { id: 2 }, { id: 3 }];
-
-const colorLists = [
-  { id: 1, name: "가정통신문" },
-  { id: 2, name: "공지사항" },
-];
+import { SchoolInfo, Meals, ClubCategory} from "../index";
+import CompanyInfo from "./Category/CompanyInfo";
 
 const Category = () => {
   const history = useHistory();
-  const [select, setSelect] = useState(0);
-  const [btnSelect, setBtnSelect] = useState(1);
-  const [buttonColor, setButtonColor] = useState("none");
 
   const ClubClickHandler = () => {
     history.push("club-info");
-  };
-
-  const CompanyClickHandler = () => {
-    history.push("company-info");
   };
 
   const DMSClickHandler = () => {
@@ -36,63 +23,12 @@ const Category = () => {
     history.push("/creators-info");
   };
 
-  //급식버튼 중복 선택 안되게 하는 함수
-  const mealBtnHandler = (list) => {
-    setSelect(list.id);
-  };
-
-  const backgroundColor = (list) => {
-    setBtnSelect(list.id);
-  };
-
   return (
-    //카테고리 묶는 컴포넌트
     <S.CategoryWrapper>
-      {/* 학교소식, 동아리소개, 취업처 소개 묶음 */}
       <S.CategoryItem>
-        {/* 학교소식 */}
-        <S.SchoolInfo>
-          <div className="container">
-            <S.Title>학교소식</S.Title>
-            <S.ButtonItem>
-              <div className="button-cover">
-                {colorLists.map((color) => (
-                  <label
-                    style={{
-                      backgroundColor:
-                        color.id === btnSelect ? "white" : "#d37c7c",
-                      color: color.id === btnSelect ? "#d37c7c" : "white",
-                    }}
-                    key={color.id}
-                    onClick={() => backgroundColor(color)}
-                  >
-                    <span>{color.name}</span>
-                  </label>
-                ))}
-              </div>
-            </S.ButtonItem>
-            <S.InfoList>
-              <li>대덕어쩌고 저쩌고</li>
-              <li>대덕어쩌고 저쩌고</li>
-              <li>대덕어쩌고 저쩌고</li>
-              <li>대덕어쩌고 저쩌고</li>
-              <li>대덕어쩌고 저쩌고</li>
-            </S.InfoList>
-          </div>
-        </S.SchoolInfo>
-        {/* 동아리 소개  */}
+        <SchoolInfo />
         <ClubCategory onClick={ClubClickHandler} />
-        {/* 취업처 소개 */}
-        <S.CompanyInfo onClick={CompanyClickHandler}>
-          <div className="container club">
-            <S.Title>취업처 소개</S.Title>
-            <div className="club-info">
-              <S.Font14>대덕소프트웨어마이스터고등학교</S.Font14>
-              <S.Font14>학생들의 취업처를 소개합니다</S.Font14>
-            </div>
-          </div>
-          <div className="club-img"></div>
-        </S.CompanyInfo>
+        <CompanyInfo />
         {/* DMS 구경하기 */}
         <S.DMSInfo onClick={DMSClickHandler}></S.DMSInfo>
       </S.CategoryItem>
@@ -106,36 +42,8 @@ const Category = () => {
           </div>
           <div className="student-info-img"></div>
         </S.StudentInfo>
-        {/* 오늘의 급식 */}
-        <S.TodayMeals>
-          <div className="container meal">
-            <S.Title>오늘의 급식</S.Title>
-            <S.MealMenu>
-              <ul>
-                <li>차조밥</li>
-                <li>오징어 떡볶음</li>
-                <li>배추김치</li>
-                <li>떡국</li>
-                <li>오징어 떡볶음</li>
-                <li>오징어 떡볶음</li>
-                <li>오징어 떡볶음</li>
-              </ul>
-            </S.MealMenu>
-            <S.MealButton>
-              {btnLists.map((list) => (
-                <div
-                  style={{
-                    backgroundColor: list.id === select ? "gray" : "white",
-                    borderRadius: "50px",
-                  }}
-                  key={list.id}
-                  onClick={() => mealBtnHandler(list)}
-                ></div>
-              ))}
-            </S.MealButton>
-          </div>
-        </S.TodayMeals>
 
+        <Meals />
         {/* 개발자 소개, PMS 소개  */}
         <S.InfoWrapper>
           <S.DeveloperInfo>
