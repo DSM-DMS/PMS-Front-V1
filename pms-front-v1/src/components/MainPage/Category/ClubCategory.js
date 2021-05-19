@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
-import * as S from "./style";
-import { 은빈, 진우, 지우, 은별, 고은 } from "../../assets/index";
+import * as S from "../style";
+import { 은빈, 진우, 지우, 은별, 고은 } from "../../../assets/index";
 
 const clubLists = [
   { id: 1, img: 은빈 },
@@ -20,16 +20,15 @@ const clubLists = [
 const ClubCategory = () => {
   const [val, setVal] = useState(0);
   //슬라이드
-  const sliderRef = useRef(null);
 
   useEffect(() => {
     let i = 0;
-      setInterval(()=>{
-          i++;
-          setVal(i)
-          if(i === 10) i = 0;
-      },1000)
-  },[]);
+    setInterval(() => {
+      i++;
+      setVal(i);
+      if (i === 10) i = 0;
+    }, 2000);
+  }, []);
 
   return (
     <S.ClubInfo style={{ overflow: "hidden" }}>
@@ -39,9 +38,7 @@ const ClubCategory = () => {
           <S.Font14>대덕소프트웨어마이스터고등학교</S.Font14>
           <S.Font14>다양한 동아리를 소개합니다</S.Font14>
         </div>
-        <S.ClubAnimation
-            style={{transform:`translateX(${-val * 77}px)`}}
-        >
+        <S.ClubAnimation style={{ transform: `translateX(${-val * 83}px)` }}>
           {clubLists.map((img) => (
             <img src={img.img} key={img.id} alt="동아리 로고"></img>
           ))}

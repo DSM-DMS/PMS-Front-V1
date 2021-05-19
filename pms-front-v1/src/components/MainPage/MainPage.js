@@ -39,9 +39,9 @@ function MainPage() {
       <Header />
       <S.CodingImg>
         <div className="School-img" ref={sliderRef}>
-          <img src={MainBackground}></img>
+          <img src={MainBackground} alt="슬라이드 배경"></img>
           {/* <img src={Coding}></img> */}
-          <img src={MainBackground}></img>
+          <img src={MainBackground} alt="슬라이드 배경"></img>
         </div>
         <div className="slide-button">
           <button onClick={prevSlider}> 이전</button>
@@ -54,7 +54,7 @@ function MainPage() {
             창의성과 인간미를 품은 소트프웨어 영재의 육성
           </Typist>
         </div>
-        <Category style={{margin : "50px"}} />
+        <Category style={{ margin: "50px" }} />
       </S.CodingImg>
       <MainPageFooter />
     </S.MainWrapper>
