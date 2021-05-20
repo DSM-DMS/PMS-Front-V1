@@ -1,25 +1,8 @@
 import React from "react";
 import * as S from "./style";
 
-const EventList = () => {
-  const EventList = [
-    {
-      eventName: "기초학력능력평가",
-      eventDate: "12/17~12/18",
-    },
-    {
-      eventName: "기말고사",
-      eventDate: "12/17~12/18",
-    },
-    {
-      eventName: "의무귀가",
-      eventDate: "12/17",
-    },
-    {
-      eventName: "의무귀가",
-      eventDate: "12/17",
-    },
-  ];
+const EventList = (props) => {
+  const EventList = props.eventList;
 
   return (
     <>
