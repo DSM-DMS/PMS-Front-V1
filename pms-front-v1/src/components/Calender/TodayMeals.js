@@ -46,7 +46,6 @@ function TodayMeals() {
         `event/meal/${TodayDate}`,
         {
           Authorization: `Bearer ${localStorage.getItem("access-token")}`,
-          /* "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTY0MjI4NjMsInN1YiI6Imt1YjA4MDNAbmF2ZXIuY29tIiwiZXhwIjoxNjE2NDI2NDYzLCJ0eXBlIjoiYWNjZXNzX3Rva2VuIiwicm9sZSI6IlVTRVIifQ.2WZwv6bBI3G21d7UTFvscmdBC2KIP1q_5TGgcvfB6bQ", */
         },
 
         {}
@@ -55,8 +54,6 @@ function TodayMeals() {
       setBreakfast(data.breakfast);
       setLunch(data.lunch);
       setDinner(data.dinner);
-      console.log(data.lunch);
-      console.log(data.dinner);
     } catch (e) {
       console.log(e);
     }
@@ -65,8 +62,6 @@ function TodayMeals() {
   useEffect(() => {
     getMeal();
   }, []);
-
-  //오늘의 급식 더미데이터
 
   //중복선택이 안되게 하기 위해 리스트 선언
   const buttonLists = [
