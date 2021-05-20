@@ -46,6 +46,7 @@ const ListWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   overflow: auto;
+  width: 90%;
 `;
 
 const Event = styled.div`
