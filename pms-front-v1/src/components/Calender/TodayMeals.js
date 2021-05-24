@@ -20,8 +20,6 @@ function TodayMeals() {
 
   let TodayDate = year + "" + month + "" + day;
 
-  console.log(TodayDate);
-
   function getTodayLabel() {
     var week = new Array(
       "일요일",
@@ -47,7 +45,6 @@ function TodayMeals() {
         {
           Authorization: `Bearer ${localStorage.getItem("access-token")}`,
         },
-
         {}
       );
       setTodayMeals(data);

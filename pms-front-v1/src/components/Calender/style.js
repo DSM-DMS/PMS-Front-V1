@@ -100,6 +100,7 @@ const SelectData = styled.span`
 `;
 
 const MealsList = styled.div`
+  min-height: 280px;
   display: flex;
   flex-direction: column;
   justify-content: center;
