@@ -213,13 +213,19 @@ const MealMenu = styled.div`
   border-radius: 10px;
   width: 80%;
   height: 75%;
+  max-height: 75%;
+  min-height: 75%;
   background: #4b6d9a 0% 0% no-repeat padding-box;
   display: flex;
   justify-content: center;
   overflow: auto;
 
   & ul {
-    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
     margin: 20px;
     font-size: 18px;
   }

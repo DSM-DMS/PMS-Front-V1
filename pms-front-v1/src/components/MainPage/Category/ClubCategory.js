@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import * as S from "../style";
 import { 은빈, 진우, 지우, 은별, 고은 } from "../../../assets/index";
+import { requestJW } from "../../../utils/axios/axios";
 
 const clubLists = [
   { id: 1, img: 은빈 },
@@ -18,6 +19,8 @@ const clubLists = [
 ];
 
 const ClubCategory = () => {
+  const [club, setClub] = useState([]);
+  const logo = "picture-uri";
   const [val, setVal] = useState(0);
   //슬라이드
 
@@ -26,8 +29,27 @@ const ClubCategory = () => {
     setInterval(() => {
       i++;
       setVal(i);
-      if (i === 10) i = 0;
+      if (i === 24) i = 0;
     }, 2000);
+  }, []);
+
+  const getClub = async () => {
+    try {
+      const data = await requestJW(
+        "get",
+        "introduce/clubs",
+        { Authorization: `Bearer ${localStorage.getItem("access-token")}` },
+        ""
+      );
+      console.log(data.data.clubs);
+      setClub(data.data.clubs);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  useEffect(() => {
+    getClub();
   }, []);
 
   return (
@@ -39,8 +61,8 @@ const ClubCategory = () => {
           <S.Font14>다양한 동아리를 소개합니다</S.Font14>
         </div>
         <S.ClubAnimation style={{ transform: `translateX(${-val * 83}px)` }}>
-          {clubLists.map((img) => (
-            <img src={img.img} key={img.id} alt="동아리 로고"></img>
+          {club.map((img, index) => (
+            <img src={img[`${logo}`]} key={index} alt="동아리 로고"></img>
           ))}
         </S.ClubAnimation>
       </div>
