@@ -11,7 +11,7 @@ const InfoItemBox = (props) => {
     <>
       <S.ItemBox onClick={ItemBoxClickHandler}>
         <S.ItemContainer>
-          <img scr="{props.clubImg}"></img>
+          <img src={props.clubImg} alt="로고"></img>
           <h3>{props.title}</h3>
           <p>{props.explanation}</p>
           <span>{props.resolution}</span>

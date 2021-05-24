@@ -241,7 +241,7 @@ const InfoWrapper = styled.div`
     flex-direction: row;
     margin-top: 40px;
     //overflow: hidden;
-    width: 100%;
+    width: 400%;
     > img {
       border: 1px solid red;
       width: 200px;

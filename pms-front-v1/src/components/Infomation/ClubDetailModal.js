@@ -2,9 +2,10 @@ import React, { useEffect, useRef, useState } from "react";
 import * as S from "./style";
 
 const ClubDetailModal = (props) => {
-  const TOTAL_SLIDES = 2;
+  const TOTAL_SLIDES = 4;
   const [currentSlider, setCurrentSlider] = useState(0);
   const sliderRef = useRef(null);
+  const [val, setVal] = useState(0);
 
   const nextSlider = () => {
     //더이상 넘어갈 슬라이드가 없으면 초기화
@@ -25,7 +26,13 @@ const ClubDetailModal = (props) => {
 
   useEffect(() => {
     sliderRef.current.style.transition = "all 0.5s ease-in-out";
-    sliderRef.current.style.transform = `translateX(-${currentSlider}00%)`;
+    sliderRef.current.style.transform = `translateX(-${currentSlider}0%)`;
+    let i = 0;
+    setInterval(() => {
+      i++;
+      setVal(i);
+    }, 2000);
+    if (i === 3) i = 0;
   }, [currentSlider]);
 
   return (
@@ -44,12 +51,16 @@ const ClubDetailModal = (props) => {
         <S.InfoWrapper>
           <h3>{props.titleName}</h3>
           <span>jhgfd</span>
-          <div className="club-img" ref={sliderRef}>
-            <img src="/"></img>
-            <img src="/"></img>
-            <img src="/"></img>
-            <img src="/"></img>
-            <img src="/"></img>
+          <div
+            className="club-img"
+            ref={sliderRef}
+            style={{ transform: `translateX(${-val * 250}px)` }}
+          >
+            <img src="/" alt="동아리 사진"></img>
+            <img src="/" alt="동아리 사진"></img>
+            <img src="/" alt="동아리 사진"></img>
+            <img src="/" alt="동아리 사진"></img>
+            <img src="/" alt="동아리 사진"></img>
           </div>
           <div className="button-icon">
             <button onClick={prevSlider}>이전</button>
