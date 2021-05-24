@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { requestJW } from "../../../utils/axios/axios";
 import * as S from "../style";
 
 const colorLists = [
@@ -8,11 +9,30 @@ const colorLists = [
 
 const SchoolInfo = () => {
   const [btnSelect, setBtnSelect] = useState(1);
-  const [buttonColor, setButtonColor] = useState("none");
+  const [schoolInfo, setSchoolInfo] = useState([]);
 
   const backgroundColor = (list) => {
     setBtnSelect(list.id);
   };
+
+  const getSchoolApi = async () => {
+    try {
+      const data = await requestJW(
+        "get",
+        "notice",
+        { Authorization: `Bearer ${localStorage.getItem("access-token")}` },
+        {},
+        ""
+      );
+      setSchoolInfo(data.data);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  useEffect(() => {
+    getSchoolApi();
+  }, []);
 
   return (
     <S.SchoolInfo>
@@ -35,11 +55,9 @@ const SchoolInfo = () => {
           </div>
         </S.ButtonItem>
         <S.InfoList>
-          <li>대덕어쩌고 저쩌고</li>
-          <li>대덕어쩌고 저쩌고</li>
-          <li>대덕어쩌고 저쩌고</li>
-          <li>대덕어쩌고 저쩌고</li>
-          <li>대덕어쩌고 저쩌고</li>
+          {schoolInfo.map((i, index) => (
+            <li key={index}>{i.title}</li>
+          ))}
         </S.InfoList>
       </div>
     </S.SchoolInfo>
