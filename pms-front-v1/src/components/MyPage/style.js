@@ -38,55 +38,6 @@ export const MyPageWrapper = styled.div`
         }
     }
 `;
-export const UesrInformation = styled.div`
-    width: 100%;
-    height: 30%;
-    h4{
-        font-size: 18px;
-    }
-    .userInformationItem{
-        width: 90%;
-        height: 28%;
-        border-top: 0.5px solid #c8c8c8;
-        display: flex;
-        .ItemTitle{
-            background: #F6F6F6 0% 0% no-repeat padding-box;
-            width: 20%;
-            height: 100%;
-            color:#9e9e9e;
-            font-size: 16px;
-            box-sizing: border-box;
-            padding: 2.4% 2%;
-        }
-        .ItemContent{
-            width:80%;
-            height:100%;
-            color: #9e9e9e;
-            font-size: 16px;
-            box-sizing:border-box;
-            padding: 2% 3%;
-        }
-        input{
-            margin: 1.5% 1%;
-            outline:none;
-            border: 1px solid #c8c8c8;
-            color: black;
-            width: 40%;
-            height: 65%;
-            border-radius: 2px;
-            box-sizing:border-box;
-            padding-left: 2%;
-            font-size: 15px;
-        }
-    }
-    .userInformationItem.bot{
-            border-bottom: 0.5px solid #c8c8c8;
-            input{
-                border: 1px solid #9e9e9e;
-                background-color:#f6f6f6;
-            }
-    }
-`;
 export const ChangePassword = styled.div`
     width: 100%;
     height: 60%;
