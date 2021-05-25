@@ -2,8 +2,14 @@ import React from "react";
 import * as S from "./style";
 import BackgroundTitle from '../BackgroundTitle'
 import Footer from '../footer/Footer'
+<<<<<<< Updated upstream
 import { Profile ,Bike, Home, MealGreen, RightPassword, Triangle, AddChildren, WrongPassword } from '../../assets/index'
 import UserInformation from './UserInformation/UserInformation'
+=======
+import { Profile ,Bike, Home, MealGreen, Triangle, AddChildren} from '../../assets/index'
+import UserInformation from './UserInformation/UserInformation'
+import ChangePassword from './ChangePassword/ChangePassword'
+>>>>>>> Stashed changes
 
 
 function MyPage() {
@@ -15,6 +21,7 @@ function MyPage() {
                     <div className="itemBox">
                         <UserInformation />
                         <br/>
+<<<<<<< Updated upstream
                         <S.ChangePassword>
                             <div className="changePasswordTitle"><h4>비밀번호 변경</h4>&nbsp;&nbsp;&nbsp;개인정보 보호를 위해 비밀번호는 주기적으로 변경해주세요.</div>
                             <br/>
@@ -27,6 +34,9 @@ function MyPage() {
                                 <button>확인</button>
                             </div>
                         </S.ChangePassword>
+=======
+                        <ChangePassword />
+>>>>>>> Stashed changes
                     </div>
                     <div className="itemBox">
                         <h4>자녀정보</h4><br/>
