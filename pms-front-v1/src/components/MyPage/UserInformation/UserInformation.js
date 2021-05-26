@@ -2,7 +2,11 @@ import React from 'react';
 import * as S from './style';
 
 function UserInformation() {
+<<<<<<< Updated upstream
     return(
+=======
+    return (
+>>>>>>> Stashed changes
         <S.UserInformation>
             <h4>개인 정보</h4>
             <S.UserInformationItem>

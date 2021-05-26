@@ -38,6 +38,7 @@ export const MyPageWrapper = styled.div`
         }
     }
 `;
+<<<<<<< Updated upstream
 export const ChangePassword = styled.div`
     width: 100%;
     height: 60%;
@@ -86,6 +87,8 @@ export const ChangePassword = styled.div`
         }
     }
 `
+=======
+>>>>>>> Stashed changes
 export const MyChildren = styled.div`
     background-color: white;
     width: 95%;
