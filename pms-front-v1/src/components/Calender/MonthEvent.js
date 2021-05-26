@@ -2,7 +2,8 @@ import React from "react";
 import EventList from "./EventList";
 import * as S from "./style";
 
-const MonthEvent = () => {
+const MonthEvent = (props) => {
+
   return (
     <S.SideWrapper>
       <S.Title>이달의 행사</S.Title>
