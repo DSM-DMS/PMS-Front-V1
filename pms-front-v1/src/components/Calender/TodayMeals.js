@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from "react";
 import * as S from "./style";
-
 import EventList from "./EventList";
 import { requestJW } from "../../utils/axios/axios";
 
-function TodayMeals() {
-  //버튼이 선택되었는지 확인하는 변수
+function TodayMeals(t) {
   const [selected, setSelected] = useState(1);
-  const [todayMeals, setTodayMeals] = useState([]);
   const [breakfast, setBreakfast] = useState([]);
   const [lunch, setLunch] = useState([]);
   const [dinner, setDinner] = useState([]);
+  const [mealImg, setMealImg] = useState([]);
+  const [listDisplay, setListDisplay] = useState("flex");
+  const [imgDisplay, setImgDisplay] = useState("none");
 
-  //오늘의 날짜
   const date = new Date();
   const year = date.getFullYear();
   const month = ("0" + (1 + date.getMonth())).slice(-2);
@@ -37,30 +36,61 @@ function TodayMeals() {
     return todayLabel;
   }
 
-  const getMeal = async () => {
-    try {
-      const { data } = await requestJW(
-        "get",
-        `event/meal/${TodayDate}`,
-        {
-          Authorization: `Bearer ${localStorage.getItem("access-token")}`,
-        },
-        {}
-      );
-      setTodayMeals(data);
-      setBreakfast(data.breakfast);
-      setLunch(data.lunch);
-      setDinner(data.dinner);
-    } catch (e) {
-      console.log(e);
+  useEffect(() => {
+    const getMealAPI = async () => {
+      try {
+        const { data } = await requestJW(
+          "get",
+          `event/meal/${TodayDate}`,
+          "",
+          {}
+        );
+        setBreakfast(data.breakfast);
+        setLunch(data.lunch);
+        setDinner(data.dinner);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    const getMealImgAPI = async () => {
+      try {
+        const data = await requestJW(
+          "get",
+          `event/meal/picture/${TodayDate}`,
+          {
+            Authorization: `Bearer ${localStorage.getItem("access-token")}`,
+          },
+          ""
+        );
+        setMealImg(data.data);
+        console.log(data.data.breakfast);
+        console.log(data);
+      } catch (e) {
+        if (e.response.status === 400) {
+          setMealImg(null);
+        }
+      }
+    };
+
+    getMealImgAPI();
+    getMealAPI();
+  }, [TodayDate]);
+
+  const mealImgClickHandler = () => {
+    if (listDisplay === "none" && imgDisplay === "flex") {
+      setTimeout(() => {
+        setListDisplay("flex");
+        setImgDisplay("none");
+      }, 500);
+    } else {
+      setTimeout(() => {
+        setListDisplay("none");
+        setImgDisplay("flex");
+      }, 500);
     }
   };
 
-  useEffect(() => {
-    getMeal();
-  }, []);
-
-  //중복선택이 안되게 하기 위해 리스트 선언
   const buttonLists = [
     {
       id: 1,
@@ -76,25 +106,51 @@ function TodayMeals() {
     },
   ];
 
-  //아침, 점심, 저녁 버튼 클릭하면 색 바뀌게 하는 이벤트 핸들러
   const MealButtonClickHandler = (row) => {
     setSelected(row.id);
   };
-  useEffect(() => {
-    console.log(selected);
-  }, [selected]);
+
   return (
     <S.SideWrapper>
       <S.Title>오늘의 급식</S.Title>
       <S.SelectData>
         {month}월 {day}일 {getTodayLabel(date)}
       </S.SelectData>
-      <S.MealsList>
+      <S.MealsList onClick={mealImgClickHandler}>
         {selected === 1
-          ? breakfast.map((i, index) => <span key={index}>{i}</span>)
+          ? breakfast.map((i, index) => (
+              <span style={{ display: listDisplay }} key={index}>
+                {i}
+              </span>
+            ))
           : selected === 2
-          ? lunch.map((i, index) => <span key={index}>{i}</span>)
-          : dinner.map((i, index) => <span key={index}>{i}</span>)}
+          ? lunch.map((i, index) => (
+              <span style={{ display: listDisplay }} key={index}>
+                {i}
+              </span>
+            ))
+          : dinner.map((i, index) => (
+              <span style={{ display: listDisplay }} key={index}>
+                {i}
+              </span>
+            ))}
+        {mealImg === null ? (
+          <div style={{ display: imgDisplay }}>
+            오늘의 급식 사진이 없습니다.
+          </div>
+        ) : (
+          <img
+            style={{ display: imgDisplay }}
+            src={
+              selected === 1
+                ? mealImg.breakfast
+                : selected === 2
+                ? mealImg.lunch
+                : mealImg.dinner
+            }
+            alt="급식사진"
+          />
+        )}
       </S.MealsList>
       <S.Nav>
         {buttonLists.map((buttonList) => {

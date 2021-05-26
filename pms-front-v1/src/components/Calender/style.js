@@ -58,11 +58,11 @@ const Event = styled.div`
   display: flex;
   align-items: center;
   flex-direction: row;
+  justify-content: space-between;
 `;
 
 const EventName = styled.div`
   padding: 10px 20px;
-  width: 158px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -100,6 +100,7 @@ const SelectData = styled.span`
 `;
 
 const MealsList = styled.div`
+  cursor: pointer;
   min-height: 280px;
   display: flex;
   flex-direction: column;
@@ -111,9 +112,15 @@ const MealsList = styled.div`
   background: #f6f6f6 0% 0% no-repeat padding-box;
   border-radius: 30px;
   overflow: auto;
-  span {
-    margin: 3px;
+  & span {
+    margin: 7px;
     font-size: 18px;
+  }
+
+  & img {
+    display: none;
+    object-fit: cover;
+    width: 90%;
   }
 `;
 
