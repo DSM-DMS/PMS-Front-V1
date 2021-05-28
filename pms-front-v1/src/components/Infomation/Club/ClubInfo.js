@@ -9,46 +9,69 @@ import ClubDetailModal from "../ClubDetailModal";
 import { requestJW } from "../../../utils/axios/axios";
 
 function ClubInfo() {
-  const [modal, setModal] = useState("none");
   const [club, setClub] = useState([]);
+  const [clubTitle, setClubTitle] = useState("");
+  const [clubDetail, setClubDetail] = useState([]);
+  const [modalBool, setModalBool] = useState(false);
   const logo = "picture-uri";
-  const title = "club-name";
+  const clubName = "club-name";
 
-  //Modal창 닫기
   const ModalClose = () => {
-    setModal("none");
-  };
-
-  const getClub = async () => {
-    try {
-      const data = await requestJW(
-        "get",
-        "introduce/clubs",
-        { Authorization: `Bearer ${localStorage.getItem("access-token")}` },
-        ""
-      );
-      console.log(data.data.clubs);
-      setClub(data.data.clubs);
-    } catch (e) {
-      console.log(e);
-    }
+    setModalBool(false);
   };
 
   useEffect(() => {
+    const getClub = async () => {
+      try {
+        const data = await requestJW(
+          "get",
+          "introduce/clubs",
+          { Authorization: `Bearer ${localStorage.getItem("access-token")}` },
+          ""
+        );
+        setClub(data.data.clubs);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    const clubDetailAPI = async () => {
+      try {
+        const data = await requestJW(
+          "get",
+          `introduce/clubs/${clubTitle}`,
+          { Authorization: `Bearer ${localStorage.getItem("access-token")}` },
+          ""
+        );
+        setClubDetail(data.data);
+        console.log(data.data);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
     getClub();
-  }, []);
+    clubDetailAPI();
+  }, [clubTitle]);
+
+  const ModalControl = () => {
+    setModalBool(!modalBool);
+  };
+
+  console.log(clubTitle);
 
   return (
     <>
-      {/* <ClubDetailModal
-        titleName="동아리 소개"
-        key={clubList.id}
-        modal={modal}
-        ModalClose={ModalClose}
-        clubName={clubList.clubName}
-        explanation={clubList.explanation}
-        resolution={clubList.resolution}
-      /> */}
+      {modalBool && (
+        <ClubDetailModal
+          titleName="동아리 소개"
+          modal={"flex"}
+          ModalClose={ModalClose}
+          clubName={clubDetail.title}
+          explanation={clubDetail.explanation}
+          img={clubDetail.uri}
+        />
+      )}
 
       <S.InfoMainWrapper>
         <BackgroundTitle title="" />
@@ -59,11 +82,11 @@ function ClubInfo() {
               <>
                 <InfoItemBox
                   key={index}
-                  setModal={setModal}
+                  setModalBool={ModalControl}
+                  setClubTitle={setClubTitle}
                   clubImg={club[`${logo}`]}
-                  title={club[`${title}`]}
-                  /* explanation={club.explanation}
-                  resolution={club.resolution} */
+                  clubName={club[`${clubName}`]}
+                  explanation={club.explanation}
                 />
               </>
             );
