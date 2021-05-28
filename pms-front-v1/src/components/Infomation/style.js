@@ -94,24 +94,29 @@ const InfoHeaderWrapper = styled.div`
 const ItemBoxWrapper = styled.div`
   position: relative;
   top: -4%;
-  //margin: 0 auto;
   width: 70%;
   height: 800px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   align-content: baseline;
   overflow: auto;
 `;
 
 const ItemBox = styled.div`
   cursor: pointer;
-  margin: 20px;
+  margin: 1%;
   width: 21.7%;
   height: 200px;
   background: #ffffff 0% 0% no-repeat padding-box;
   box-shadow: 0px 5px 5px #00000029;
   border: 1px solid #c8c8c8;
   border-radius: 5px;
+  transition: 0.5s all;
+  
+  :hover {
+    width: 24%;
+  }
 `;
 
 const ItemContainer = styled.div`
