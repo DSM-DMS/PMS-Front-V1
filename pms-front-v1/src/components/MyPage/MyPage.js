@@ -2,15 +2,10 @@ import React from "react";
 import * as S from "./style";
 import BackgroundTitle from '../BackgroundTitle'
 import Footer from '../footer/Footer'
-<<<<<<< Updated upstream
-import { Profile ,Bike, Home, MealGreen, RightPassword, Triangle, AddChildren, WrongPassword } from '../../assets/index'
-import UserInformation from './UserInformation/UserInformation'
-=======
-import { Profile ,Bike, Home, MealGreen, Triangle, AddChildren} from '../../assets/index'
+import {Bike, Home, MealGreen} from '../../assets/index'
 import UserInformation from './UserInformation/UserInformation'
 import ChangePassword from './ChangePassword/ChangePassword'
->>>>>>> Stashed changes
-
+import ChildrenInformation from './ChildrenInformation/ChildrenInformation'
 
 function MyPage() {
     return(
@@ -21,35 +16,12 @@ function MyPage() {
                     <div className="itemBox">
                         <UserInformation />
                         <br/>
-<<<<<<< Updated upstream
-                        <S.ChangePassword>
-                            <div className="changePasswordTitle"><h4>비밀번호 변경</h4>&nbsp;&nbsp;&nbsp;개인정보 보호를 위해 비밀번호는 주기적으로 변경해주세요.</div>
-                            <br/>
-                            <div className="changePasswordItem">
-                                <div className="changepassworditeminput"><input placeholder="현재 비밀번호 입력" type="password"></input><img src={RightPassword} alt=""></img></div>
-                                <div className="errormessage" id="nowPW-error">비밀번호가 일치하지 않습니다</div>
-                                <div className="changepassworditeminput"><input placeholder="신규 비밀번호 입력" type="password"></input></div>
-                                <div className="changepassworditeminput"><input placeholder="신규 비밀번호 재입력" type="password"></input><img src={WrongPassword} alt=""></img></div>
-                                <div className="errormessage">비밀번호가 일치하지 않습니다</div>
-                                <button>확인</button>
-                            </div>
-                        </S.ChangePassword>
-=======
                         <ChangePassword />
->>>>>>> Stashed changes
                     </div>
                     <div className="itemBox">
                         <h4>자녀정보</h4><br/>
                         <div className="childrenInformation">
-                            <S.MyChildren>
-                                <div className="childrenprofile">
-                                    <img src={Profile} alt=""></img>
-                                </div>
-                                <div className="children-Status">
-                                    <h5>손채건</h5>
-                                    1학년 1반 11번 - 공통교육과정
-                                </div>
-                            </S.MyChildren>
+                            <ChildrenInformation />
                             <S.ChildrenStatus>
                                 <div className="childrenStatus">
                                     <S.ChildrenStatusItem>
