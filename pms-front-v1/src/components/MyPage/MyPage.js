@@ -2,10 +2,10 @@ import React from "react";
 import * as S from "./style";
 import BackgroundTitle from '../BackgroundTitle'
 import Footer from '../footer/Footer'
-import { Profile ,Bike, Home, MealGreen, Triangle, AddChildren} from '../../assets/index'
+import {Bike, Home, MealGreen} from '../../assets/index'
 import UserInformation from './UserInformation/UserInformation'
 import ChangePassword from './ChangePassword/ChangePassword'
-
+import ChildrenInformation from './ChildrenInformation/ChildrenInformation'
 
 function MyPage() {
     return(
@@ -21,15 +21,7 @@ function MyPage() {
                     <div className="itemBox">
                         <h4>자녀정보</h4><br/>
                         <div className="childrenInformation">
-                            <S.MyChildren>
-                                <div className="childrenprofile">
-                                    <img src={Profile} alt=""></img>
-                                </div>
-                                <div className="children-Status">
-                                    <h5>손채건</h5>
-                                    1학년 1반 11번 - 공통교육과정
-                                </div>
-                            </S.MyChildren>
+                            <ChildrenInformation />
                             <S.ChildrenStatus>
                                 <div className="childrenStatus">
                                     <S.ChildrenStatusItem>
