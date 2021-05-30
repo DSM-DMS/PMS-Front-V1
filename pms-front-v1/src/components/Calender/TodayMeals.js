@@ -14,8 +14,8 @@ function TodayMeals(t) {
 
   const date = new Date();
   const year = date.getFullYear();
-  const month = ("0" + (1 + date.getMonth())).slice(-2);
-  const day = ("0" + date.getDate()).slice(-2);
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
 
   let TodayDate = year + "" + month + "" + day;
 
@@ -64,8 +64,6 @@ function TodayMeals(t) {
           ""
         );
         setMealImg(data.data);
-        console.log(data.data.breakfast);
-        console.log(data);
       } catch (e) {
         if (e.response.status === 400) {
           setMealImg(null);
@@ -135,7 +133,7 @@ function TodayMeals(t) {
               </span>
             ))}
         {mealImg === null ? (
-          <div style={{ display: imgDisplay }}>
+          <div style={{ display: imgDisplay, color: "gray" }}>
             오늘의 급식 사진이 없습니다.
           </div>
         ) : (
