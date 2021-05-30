@@ -17,7 +17,7 @@ function Calender() {
   let month = date.getMonth() + 1;
   let day = date.getDate();
 
-  if (month < 10) {
+  /* if (month < 10) {
     month = "0" + month;
   }
   if (day < 10) {
@@ -54,15 +54,15 @@ function Calender() {
     []
   );
 
-  console.log(eventDate);
+  console.log(eventDate); */
 
   return (
     <S.MainWrapper>
       <BackgroundTitle title="" />
       <S.CalenderWrapper>
-        <MonthEvent eventDate={eventDate} />
+        <MonthEvent />
         <MonthCalender />
-        <TodayMeals eventDayData={eventDayData} />
+        <TodayMeals />
       </S.CalenderWrapper>
       <Footer />
     </S.MainWrapper>
