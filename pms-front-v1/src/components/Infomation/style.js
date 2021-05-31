@@ -29,15 +29,16 @@ const CreatorsWrapper = styled.div`
   align-content: stretch;
 `;
 const InfoItem = styled.div`
-  margin-right: ${({ styleMargin }) => styleMargin};
+  margin: 0 20px;
   width: 250px;
   height: 300px;
-  background-color: ${({ ItemBackground }) => ItemBackground};
+  background-color: white;
   box-shadow: 3px 3px 3px #00000029;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  transition: 0.5s all;
 
   span {
     margin: 15px;
@@ -47,6 +48,10 @@ const InfoItem = styled.div`
     width: 160px;
     height: 160px;
     border-radius: 100px;
+  }
+  :hover {
+    width: 270px;
+    height: 320px;
   }
 `;
 
@@ -113,7 +118,7 @@ const ItemBox = styled.div`
   border: 1px solid #c8c8c8;
   border-radius: 5px;
   transition: 0.5s all;
-  
+
   :hover {
     width: 24%;
   }
