@@ -7,4 +7,7 @@ const FooterWarpper = styled.div`
   
 `;
 
-export { FooterWarpper };
+const MainFooterWarpper = styled(FooterWarpper)`
+  background-color : white;
+`;
+export { FooterWarpper, MainFooterWarpper };
