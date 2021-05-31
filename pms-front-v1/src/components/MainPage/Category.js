@@ -1,7 +1,7 @@
 import React from "react";
 import * as S from "./style";
 import { useHistory } from "react-router-dom";
-import { SchoolInfo, Meals, ClubCategory} from "../index";
+import { SchoolInfo, Meals, ClubCategory } from "../index";
 import CompanyInfo from "./Category/CompanyInfo";
 
 const Category = () => {
@@ -12,7 +12,7 @@ const Category = () => {
   };
 
   const DMSClickHandler = () => {
-    history.href("/https://www.dsm-dms.com/");
+    history.href("https://www.dsm-dms.com/");
   };
 
   const LoginBtnClick = () => {
@@ -30,7 +30,9 @@ const Category = () => {
         <ClubCategory onClick={ClubClickHandler} />
         <CompanyInfo />
         {/* DMS 구경하기 */}
-        <S.DMSInfo onClick={DMSClickHandler}></S.DMSInfo>
+        <S.DMSInfo href="https://www.dsm-dms.com">
+          <S.DMSInfo onClick={DMSClickHandler} />
+        </S.DMSInfo>
       </S.CategoryItem>
       {/* 마이페이지, 로그인 묶음 */}
       <S.CategoryItemBottom>
