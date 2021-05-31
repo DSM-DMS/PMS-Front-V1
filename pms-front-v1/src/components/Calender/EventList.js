@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { FetchEvent } from "../../utils/api/user";
 import { requestJW } from "../../utils/axios/axios";
 import * as S from "./style";
 
-const EventList = (props) => {
+const EventList = () => {
   const [eventData, setEventData] = useState([]);
 
   let date = new Date();
@@ -32,7 +33,6 @@ const EventList = (props) => {
     (prev, date) => prev.concat({ date, scheudles: eventData[date] }),
     []
   );
-
 
   return (
     <>
