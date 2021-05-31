@@ -1,17 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import * as S from "../style";
-
-import BackgroundTitle from "../../BackgroundTitle";
-import Footer from "../../footer/Footer";
-import InfoHeader from "../InfoHeader";
-import InfoItemBox from "../InfoItemBox";
-import ClubDetailModal from "../ClubDetailModal";
-import { requestJW } from "../../../utils/axios/axios";
+import {
+  BackgroundTitle,
+  Footer,
+  InfoHeader,
+  InfoItemBox,
+  ClubDetailModal,
+} from "../../index";
+import { FetchClub, FetchClubDetail } from "../../../utils/api/user";
 
 function ClubInfo() {
-  const [club, setClub] = useState([]);
   const [clubTitle, setClubTitle] = useState("");
-  const [clubDetail, setClubDetail] = useState([]);
   const [modalBool, setModalBool] = useState(false);
   const logo = "picture-uri";
   const clubName = "club-name";
@@ -20,45 +19,15 @@ function ClubInfo() {
     setModalBool(false);
   };
 
-  useEffect(() => {
-    const getClub = async () => {
-      try {
-        const data = await requestJW(
-          "get",
-          "introduce/clubs",
-          { Authorization: `Bearer ${localStorage.getItem("access-token")}` },
-          ""
-        );
-        setClub(data.data.clubs);
-      } catch (e) {
-        console.log(e);
-      }
-    };
+  // 동아리 리스트 api
+  const fetchClub = FetchClub();
 
-    const clubDetailAPI = async () => {
-      try {
-        const data = await requestJW(
-          "get",
-          `introduce/clubs/${clubTitle}`,
-          { Authorization: `Bearer ${localStorage.getItem("access-token")}` },
-          ""
-        );
-        setClubDetail(data.data);
-        console.log(data.data);
-      } catch (e) {
-        console.log(e);
-      }
-    };
-
-    getClub();
-    clubDetailAPI();
-  }, [clubTitle]);
+  // 동아리 상세 api
+  const fetchClubDetail = FetchClubDetail(clubTitle);
 
   const ModalControl = () => {
     setModalBool(!modalBool);
   };
-
-  console.log(clubTitle);
 
   return (
     <>
@@ -67,9 +36,9 @@ function ClubInfo() {
           titleName="동아리 소개"
           modal={"flex"}
           ModalClose={ModalClose}
-          clubName={clubDetail.title}
-          explanation={clubDetail.explanation}
-          img={clubDetail.uri}
+          clubName={fetchClubDetail?.title}
+          explanation={fetchClubDetail?.explanation}
+          img={fetchClubDetail?.uri}
         />
       )}
 
@@ -77,7 +46,7 @@ function ClubInfo() {
         <BackgroundTitle title="" />
         <InfoHeader title="동아리 소개" placeholder="동아리를 입력해주세요" />
         <S.ItemBoxWrapper>
-          {club.map((club, index) => {
+          {fetchClub?.clubs.map((club, index) => {
             return (
               <>
                 <InfoItemBox
