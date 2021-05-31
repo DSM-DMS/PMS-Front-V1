@@ -40,7 +40,6 @@ const creatorsList = [
     img: 고은,
     name: "정고은",
     field: "iOS PM",
-    className: "margin-none",
   },
   {
     id: 6,
@@ -57,32 +56,11 @@ const creatorsList = [
 ];
 
 function CreatorsItem() {
-  const [selected, setSelected] = useState(0);
-
-  //마우스 가져다 놓을시 색 변경
-  const ItemMouseOverHandler = (row) => {
-    setSelected(row.id);
-  };
-  //마우스 아웃시 기본색
-  const ItemMouseOutHandler = () => {
-    setSelected(0);
-  };
-
   return (
     <>
       {creatorsList.map((creator) => {
-        //특정 인물 margin-right : 0
-        const styleMargin = creator.className === "margin-none" ? "0" : "61px";
         return (
-          <S.InfoItem
-            key={creator.id}
-            style={{
-              marginRight: styleMargin,
-              backgroundColor: creator.id === selected ? "#ccd8e6" : "white",
-            }}
-            onMouseOver={() => ItemMouseOverHandler(creator)}
-            onMouseOut={() => ItemMouseOutHandler()}
-          >
+          <S.InfoItem key={creator.id}>
             <img src={creator.img} alt="프로필사진"></img>
             <span>{creator.name}</span>
             <span>{creator.field}</span>
