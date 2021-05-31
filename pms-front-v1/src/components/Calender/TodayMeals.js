@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import * as S from "./style";
 import EventList from "./EventList";
-import { requestJW } from "../../utils/axios/axios";
+import { requestJW, JwURL, fetcher } from "../../utils/axios/axios";
+import useSWR from "swr";
+import axios from "axios";
+import { FetchMeal, FetchMealImg } from "../../utils/api/user";
 
-function TodayMeals(t) {
+function TodayMeals() {
   const [selected, setSelected] = useState(1);
-  const [breakfast, setBreakfast] = useState([]);
-  const [lunch, setLunch] = useState([]);
-  const [dinner, setDinner] = useState([]);
-  const [mealImg, setMealImg] = useState([]);
   const [listDisplay, setListDisplay] = useState("flex");
   const [imgDisplay, setImgDisplay] = useState("none");
 
@@ -36,56 +35,17 @@ function TodayMeals(t) {
     return todayLabel;
   }
 
-  useEffect(() => {
-    const getMealAPI = async () => {
-      try {
-        const { data } = await requestJW(
-          "get",
-          `event/meal/${TodayDate}`,
-          "",
-          {}
-        );
-        setBreakfast(data.breakfast);
-        setLunch(data.lunch);
-        setDinner(data.dinner);
-      } catch (e) {
-        console.log(e);
-      }
-    };
-
-    const getMealImgAPI = async () => {
-      try {
-        const data = await requestJW(
-          "get",
-          `event/meal/picture/${TodayDate}`,
-          {
-            Authorization: `Bearer ${localStorage.getItem("access-token")}`,
-          },
-          ""
-        );
-        setMealImg(data.data);
-      } catch (e) {
-        if (e.response.status === 400) {
-          setMealImg(null);
-        }
-      }
-    };
-
-    getMealImgAPI();
-    getMealAPI();
-  }, [TodayDate]);
+  //급식 API
+  const fetchMeal = FetchMeal(TodayDate);
+  const fetchMealImg = FetchMealImg(TodayDate);
 
   const mealImgClickHandler = () => {
     if (listDisplay === "none" && imgDisplay === "flex") {
-      setTimeout(() => {
-        setListDisplay("flex");
-        setImgDisplay("none");
-      }, 500);
+      setListDisplay("flex");
+      setImgDisplay("none");
     } else {
-      setTimeout(() => {
-        setListDisplay("none");
-        setImgDisplay("flex");
-      }, 500);
+      setListDisplay("none");
+      setImgDisplay("flex");
     }
   };
 
@@ -116,23 +76,23 @@ function TodayMeals(t) {
       </S.SelectData>
       <S.MealsList onClick={mealImgClickHandler}>
         {selected === 1
-          ? breakfast.map((i, index) => (
+          ? fetchMeal?.breakfast.map((i, index) => (
               <span style={{ display: listDisplay }} key={index}>
                 {i}
               </span>
             ))
           : selected === 2
-          ? lunch.map((i, index) => (
+          ? fetchMeal?.lunch.map((i, index) => (
               <span style={{ display: listDisplay }} key={index}>
                 {i}
               </span>
             ))
-          : dinner.map((i, index) => (
+          : fetchMeal?.dinner.map((i, index) => (
               <span style={{ display: listDisplay }} key={index}>
                 {i}
               </span>
             ))}
-        {mealImg === null ? (
+        {fetchMealImg === null ? (
           <div style={{ display: imgDisplay, color: "gray" }}>
             오늘의 급식 사진이 없습니다.
           </div>
@@ -141,10 +101,10 @@ function TodayMeals(t) {
             style={{ display: imgDisplay }}
             src={
               selected === 1
-                ? mealImg.breakfast
+                ? fetchMealImg?.breakfast
                 : selected === 2
-                ? mealImg.lunch
-                : mealImg.dinner
+                ? fetchMealImg?.lunch
+                : fetchMealImg?.dinner
             }
             alt="급식사진"
           />
