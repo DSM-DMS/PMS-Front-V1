@@ -6,6 +6,7 @@ const InfoItemBox = (props) => {
   const ItemBoxClickHandler = () => {
     props.setModalBool();
     props.setClubTitle(props.clubName);
+
   };
 
   return (

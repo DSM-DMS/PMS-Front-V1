@@ -5,6 +5,7 @@ const ClubDetailModal = (props) => {
   const TOTAL_SLIDES = 4;
   const sliderRef = useRef(null);
   const [currentSlider, setCurrentSlider] = useState(0);
+
   const [val, setVal] = useState(0);
 
   const nextSlider = () => {
@@ -36,6 +37,7 @@ const ClubDetailModal = (props) => {
       if (i === 4) i = 0;
     }, 3000);
     
+
   }, [currentSlider]);
 
   return (
