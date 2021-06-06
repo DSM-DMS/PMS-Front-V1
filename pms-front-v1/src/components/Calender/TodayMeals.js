@@ -1,22 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import * as S from "./style";
 import EventList from "./EventList";
-import { requestJW, JwURL, fetcher } from "../../utils/axios/axios";
-import useSWR from "swr";
-import axios from "axios";
 import { FetchMeal, FetchMealImg } from "../../utils/api/user";
 
-function TodayMeals() {
+function TodayMeals(props) {
   const [selected, setSelected] = useState(1);
   const [listDisplay, setListDisplay] = useState("flex");
   const [imgDisplay, setImgDisplay] = useState("none");
-
-  const date = new Date();
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, "0");
-  const day = String(date.getDate()).padStart(2, "0");
-
-  let TodayDate = year + "" + month + "" + day;
 
   function getTodayLabel() {
     var week = new Array(
@@ -36,8 +26,8 @@ function TodayMeals() {
   }
 
   //급식 API
-  const fetchMeal = FetchMeal(TodayDate);
-  const fetchMealImg = FetchMealImg(TodayDate);
+  const fetchMeal = FetchMeal(props.TodayDate);
+  const fetchMealImg = FetchMealImg(props.TodayDate);
 
   const mealImgClickHandler = () => {
     if (listDisplay === "none" && imgDisplay === "flex") {
@@ -72,7 +62,7 @@ function TodayMeals() {
     <S.SideWrapper>
       <S.Title>오늘의 급식</S.Title>
       <S.SelectData>
-        {month}월 {day}일 {getTodayLabel(date)}
+        {props.month}월 {props.day}일 {getTodayLabel(props.date)}
       </S.SelectData>
       <S.MealsList onClick={mealImgClickHandler}>
         {selected === 1
@@ -128,7 +118,33 @@ function TodayMeals() {
         })}
       </S.Nav>
       <S.ListWrapper>
-        <EventList />
+        {props.eventDate === null ? (
+          console.log("행사가 없습니다.")
+        ) : (
+          <>
+            {props.eventDate.map((EventList, index) => {
+              const EventDate = EventList.date.split("-");
+              const date = EventDate[1] + "-" + EventDate[2];
+
+              const EventColor =
+                EventList.scheudles[0] === "의무귀가" ? "#D37C7C" : "#56AD77";
+              return (
+                <S.Event key={index}>
+                  <S.EventName>
+                    <div
+                      className="circle"
+                      style={{ backgroundColor: EventColor }}
+                    ></div>
+                    <span>{EventList.scheudles[0]}</span>
+                  </S.EventName>
+                  <S.EventDate>
+                    <span>{date}</span>
+                  </S.EventDate>
+                </S.Event>
+              );
+            })}
+          </>
+        )}
       </S.ListWrapper>
     </S.SideWrapper>
   );

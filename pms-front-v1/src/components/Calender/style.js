@@ -87,9 +87,7 @@ const EventDate = styled.div`
   color: #7d7d7d;
   display: flex;
   align-items: center;
-  span {
-    margin: 16px;
-  }
+  width: 20%;
 `;
 
 //오늘의 급식

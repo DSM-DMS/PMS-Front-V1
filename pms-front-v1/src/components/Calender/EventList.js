@@ -3,12 +3,12 @@ import { FetchEvent } from "../../utils/api/user";
 import { requestJW } from "../../utils/axios/axios";
 import * as S from "./style";
 
-const EventList = () => {
+const EventList = (props) => {
   const [eventData, setEventData] = useState([]);
 
   let date = new Date();
   let month = date.getMonth() + 1;
-
+  
   useEffect(() => {
     const eventApi = async () => {
       try {
@@ -33,6 +33,14 @@ const EventList = () => {
     (prev, date) => prev.concat({ date, scheudles: eventData[date] }),
     []
   );
+
+  console.log(eventDate);
+
+  const test = eventDate.filter((data) => {
+    return data.date === props.today;
+  });
+
+  console.log(test);
 
   return (
     <>
