@@ -3,8 +3,6 @@ import React from "react";
 import * as S from "./style";
 
 const MonthEvent = (props) => {
-  console.log(props.eventDate);
-
   return (
     <S.SideWrapper>
       <S.Title>이달의 행사</S.Title>
@@ -12,7 +10,6 @@ const MonthEvent = (props) => {
         {props.eventDate.map((EventList, index) => {
           const EventDate = EventList.date.split("-");
           const date = EventDate[1] + "-" + EventDate[2];
-
           const EventColor =
             EventList.scheudles[0] === "의무귀가" ? "#D37C7C" : "#56AD77";
           return (
