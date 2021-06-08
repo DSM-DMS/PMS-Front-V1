@@ -9,11 +9,16 @@ function MonthCalender(props) {
     let year = Day.getFullYear();
     const month = String(Day.getMonth() + 1).padStart(2, "0");
     const day = String(Day.getDate()).padStart(2, "0");
+    const date = Day.getDay();
 
     let TodayDate = year + "-" + month + "-" + day;
     let MaelDate = year + "" + month + "" + day;
+
     props.setChangeDate(TodayDate);
     props.setMealChangeDate(MaelDate);
+    props.setMonthChange(month);
+    props.setDayChange(day);
+    props.setDateChange(date);
   };
 
   return (
