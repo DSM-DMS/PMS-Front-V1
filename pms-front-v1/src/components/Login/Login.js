@@ -1,13 +1,15 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import * as S from "./style";
-
-import BackgroundTitle from "../BackgroundTitle";
-import SocialButton from "./SocialButton";
-import Footer from "../footer/Footer";
+import { BackgroundTitle, SocialButton, Footer } from "../index";
 import { request } from "../../utils/axios/axios";
+import { LoginError } from "../../assets";
 
 function Login() {
+  const history = useHistory();
+  const [errorIcon, setErrorIcon] = useState("none");
+  const [borderBottom, setBorderBottom] = useState("");
+
   const [inputs, setInputs] = useState({
     email: "",
     password: "",
@@ -28,25 +30,27 @@ function Login() {
     e.preventDefault();
 
     try {
-      await request(
+      const { data } = await request(
         "post",
         "/auth",
-        { Authorization: `Bearer ${localStorage.getItem("access-token")}` },
+        {},
         {
           email,
           password,
         }
       );
+      localStorage.setItem("access-token", data["access-token"]);
+      history.push("/");
     } catch (e) {
       console.log(e);
+      setErrorIcon("flex");
+      setBorderBottom("2px solid #FF0000");
     }
 
     setInputs({
       email: "",
       password: "",
     });
-
-    console.log(inputs);
   };
 
   return (
@@ -57,7 +61,7 @@ function Login() {
         <S.MainItem onSubmit={handleSubmit}>
           <S.Title>
             <p>PMS 로그인</p>
-            <Link to="sign-up">회원가입 하기 > </Link>
+            <Link to="sign-up">회원가입 하기 {">"} </Link>
           </S.Title>
           {/* 로그인 입력창 */}
           <S.LoginInput>
@@ -65,17 +69,32 @@ function Login() {
               <input
                 onChange={onChange}
                 name="email"
-                type="text"
+                type="email"
                 placeholder="이메일"
                 value={email}
               ></input>
-              <input
-                onChange={onChange}
-                name="password"
-                type="password"
-                placeholder="비밀번호"
-                value={password}
-              ></input>
+              <div
+                className="password-wrapper"
+                style={{ borderBottom: borderBottom }}
+              >
+                <input
+                  style={{ borderBottom: borderBottom }}
+                  onChange={onChange}
+                  name="password"
+                  type="password"
+                  placeholder="비밀번호"
+                  value={password}
+                ></input>
+                <img
+                  style={{ display: errorIcon }}
+                  errorIcon={errorIcon}
+                  src={LoginError}
+                  alt="로그인 오류"
+                ></img>
+              </div>
+              <span className="error-message" style={{ display: errorIcon }}>
+                이메일 혹은 비밀번호를 다시 입력해주세요.
+              </span>
               <div className="auto-login">
                 <input type="checkbox"></input>
                 <span>자동 로그인</span>
@@ -92,7 +111,7 @@ function Login() {
           </S.LoginInput>
         </S.MainItem>
       </S.LoginWrapper>
-      <Footer></Footer>
+      <Footer />
     </S.MainWrapper>
   );
 }
