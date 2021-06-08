@@ -46,19 +46,3 @@ export function requestJW(method, url, header, data) {
       throw e;
     });
 }
-
-export function requestJW(method, url, header, data) {
-  return Axios({
-    method,
-    url: JwURL + url,
-    headers: header,
-    data: data,
-  })
-    .then((res) => {
-      console.log(res);
-      return res;
-    })
-    .catch((e) => {
-      throw e;
-    });
-}
