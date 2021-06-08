@@ -46,4 +46,3 @@ export function requestJW(method, url, header, data) {
       throw e;
     });
 }
-

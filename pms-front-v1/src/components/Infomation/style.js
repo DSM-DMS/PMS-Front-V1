@@ -29,24 +29,29 @@ const CreatorsWrapper = styled.div`
   align-content: stretch;
 `;
 const InfoItem = styled.div`
-  margin-right: ${({ styleMargin }) => styleMargin};
+  margin: 0 20px;
   width: 250px;
   height: 300px;
-  background-color: ${({ ItemBackground }) => ItemBackground};
+  background-color: white;
   box-shadow: 3px 3px 3px #00000029;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  transition: 0.5s all;
 
   span {
     margin: 15px;
   }
 
-  img{
-    width : 160px;
-    height : 160px;
-    border-radius : 100px;
+  img {
+    width: 160px;
+    height: 160px;
+    border-radius: 100px;
+  }
+  :hover {
+    width: 270px;
+    height: 320px;
   }
 `;
 
@@ -94,35 +99,46 @@ const InfoHeaderWrapper = styled.div`
 const ItemBoxWrapper = styled.div`
   position: relative;
   top: -4%;
-  //margin: 0 auto;
   width: 70%;
   height: 800px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   align-content: baseline;
   overflow: auto;
 `;
 
 const ItemBox = styled.div`
-  margin: 20px;
+  cursor: pointer;
+  margin: 1%;
   width: 21.7%;
   height: 200px;
   background: #ffffff 0% 0% no-repeat padding-box;
   box-shadow: 0px 5px 5px #00000029;
   border: 1px solid #c8c8c8;
   border-radius: 5px;
+  transition: 0.5s all;
+
+  :hover {
+    width: 24%;
+  }
 `;
 
 const ItemContainer = styled.div`
   width: 93%;
   height: 180px;
   margin: 4%;
+
+  &hover {
+    width: 200px;
+  }
   img {
     width: 100%;
     height: 100px;
+    object-fit: cover;
   }
   h3 {
-    margin: 5px 0;
+    margin: 9px 0;
     font-size: 16px;
     font-weight: 600;
   }
@@ -212,6 +228,7 @@ const ModalHeader = styled.div`
   }
 
   .close-img {
+    cursor: pointer;
     margin: 10px;
     width: 30px;
     height: 30px;
@@ -228,12 +245,16 @@ const InfoWrapper = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   overflow: hidden;
 
   h3 {
     margin: 25px;
     font-weight: 600;
+  }
+
+  & span {
+    margin: 0 auto;
   }
 
   .club-img {
@@ -243,7 +264,6 @@ const InfoWrapper = styled.div`
     //overflow: hidden;
     width: 400%;
     > img {
-      border: 1px solid red;
       width: 200px;
       height: 200px;
       margin: 0 24px;
@@ -252,8 +272,10 @@ const InfoWrapper = styled.div`
   .button-icon {
     display: flex;
     flex-direction: row;
-    margin: 20px;
+    margin: auto;
+
     > button {
+      cursor: pointer;
       width: 50px;
       height: 20px;
       margin: 0 10px;
