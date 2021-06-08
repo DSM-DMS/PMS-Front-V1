@@ -1,46 +1,71 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { FetchEvent } from "../../utils/api/user";
+import { requestJW } from "../../utils/axios/axios";
 import * as S from "./style";
 
-const EventList = () => {
-  const EventList = [
-    {
-      eventName: "기초학력능력평가",
-      eventDate: "12/17~12/18",
-    },
-    {
-      eventName: "기말고사",
-      eventDate: "12/17~12/18",
-    },
-    {
-      eventName: "의무귀가",
-      eventDate: "12/17",
-    },
-    {
-      eventName: "의무귀가",
-      eventDate: "12/17",
-    },
-  ];
+const EventList = (props) => {
+  const [eventData, setEventData] = useState([]);
+
+  let date = new Date();
+  let month = date.getMonth() + 1;
+  
+  useEffect(() => {
+    const eventApi = async () => {
+      try {
+        const { data } = await requestJW(
+          "get",
+          "calendar",
+          {
+            Authorization: `Bearer ${localStorage.getItem("access-token")}`,
+          },
+          {}
+        );
+        setEventData(data[`${month}`]);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    eventApi();
+  }, [month]);
+
+  const eventDate = Object.keys(eventData).reduce(
+    (prev, date) => prev.concat({ date, scheudles: eventData[date] }),
+    []
+  );
+
+  console.log(eventDate);
+
+  const test = eventDate.filter((data) => {
+    return data.date === props.today;
+  });
+
+  console.log(test);
 
   return (
     <>
-      {EventList.map((EventList) => {
+      {eventDate.map((EventList, index) => {
+        const EventDate = EventList.date.split("-");
+        const date = EventDate[1] + "-" + EventDate[2];
+
         const EventColor =
-          EventList.eventName === "의무귀가" ? "#D37C7C" : "#56AD77";
+          EventList.scheudles[0] === "의무귀가" ? "#D37C7C" : "#56AD77";
         return (
-          <S.Event>
+          <S.Event key={index}>
             <S.EventName>
               <div
                 className="circle"
                 style={{ backgroundColor: EventColor }}
               ></div>
-              <span>{EventList.eventName}</span>
+              <span>{EventList.scheudles[0]}</span>
             </S.EventName>
             <S.EventDate>
-              <span>{EventList.eventDate}</span>
+              <span>{date}</span>
             </S.EventDate>
           </S.Event>
         );
       })}
+      ;
     </>
   );
 };

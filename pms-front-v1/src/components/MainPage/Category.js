@@ -1,7 +1,7 @@
 import React from "react";
 import * as S from "./style";
 import { useHistory } from "react-router-dom";
-import { SchoolInfo, Meals, ClubCategory } from "../index";
+import { SchoolInfo, Meals, ClubCategory} from "../index";
 import CompanyInfo from "./Category/CompanyInfo";
 
 const Category = () => {
