@@ -1,6 +1,6 @@
+/* eslint-disable no-array-constructor */
 import React, { useState } from "react";
 import * as S from "./style";
-import EventList from "./EventList";
 import { FetchMeal, FetchMealImg } from "../../utils/api/user";
 
 function TodayMeals(props) {
@@ -8,7 +8,7 @@ function TodayMeals(props) {
   const [listDisplay, setListDisplay] = useState("flex");
   const [imgDisplay, setImgDisplay] = useState("none");
 
-  function getTodayLabel() {
+  function getTodayLabel(date) {
     var week = new Array(
       "일요일",
       "월요일",
@@ -19,8 +19,7 @@ function TodayMeals(props) {
       "토요일"
     );
 
-    var today = new Date().getDay();
-    var todayLabel = week[today];
+    var todayLabel = week[date];
 
     return todayLabel;
   }
@@ -118,7 +117,7 @@ function TodayMeals(props) {
         })}
       </S.Nav>
       <S.ListWrapper>
-        {props.eventDate === null ? (
+        {props.eventDate === "" ? (
           console.log("행사가 없습니다.")
         ) : (
           <>
