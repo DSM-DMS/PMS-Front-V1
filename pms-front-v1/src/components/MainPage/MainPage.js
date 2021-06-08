@@ -10,8 +10,7 @@ function MainPage() {
   const TOTAL_SLIDES = 1;
   const [currentSlider, setCurrentSlider] = useState(0);
   const sliderRef = useRef(null);
-  const [fixed, setFixed] = useState("fixed");
-
+  
   const nextSlider = () => {
     //더이상 넘어갈 슬라이드가 없으면 초기화
     if (currentSlider >= TOTAL_SLIDES) {

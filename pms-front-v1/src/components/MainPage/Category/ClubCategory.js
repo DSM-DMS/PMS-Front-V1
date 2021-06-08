@@ -1,23 +1,11 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "../style";
-import { 은빈, 진우, 지우, 은별, 고은 } from "../../../assets/index";
-
-const clubLists = [
-  { id: 1, img: 은빈 },
-  { id: 2, img: 진우 },
-  { id: 3, img: 지우 },
-  { id: 4, img: 은별 },
-  { id: 5, img: 은빈 },
-  { id: 6, img: 진우 },
-  { id: 7, img: 지우 },
-  { id: 8, img: 은별 },
-  { id: 9, img: 은빈 },
-  { id: 10, img: 진우 },
-  { id: 11, img: 지우 },
-  { id: 12, img: 은별 },
-];
+import { fetcher, requestJW } from "../../../utils/axios/axios";
+import { FetchClub } from "../../../utils/api/user";
 
 const ClubCategory = () => {
+  const [club, setClub] = useState([]);
+  const logo = "picture-uri";
   const [val, setVal] = useState(0);
   //슬라이드
 
@@ -26,9 +14,12 @@ const ClubCategory = () => {
     setInterval(() => {
       i++;
       setVal(i);
-      if (i === 10) i = 0;
+      if (i === 24) i = 0;
     }, 2000);
   }, []);
+
+  //api
+  const fetchClub = FetchClub();
 
   return (
     <S.ClubInfo style={{ overflow: "hidden" }}>
@@ -39,8 +30,8 @@ const ClubCategory = () => {
           <S.Font14>다양한 동아리를 소개합니다</S.Font14>
         </div>
         <S.ClubAnimation style={{ transform: `translateX(${-val * 83}px)` }}>
-          {clubLists.map((img) => (
-            <img src={img.img} key={img.id} alt="동아리 로고"></img>
+          {fetchClub?.clubs.map((img, index) => (
+            <img src={img[`${logo}`]} key={index} alt="동아리 로고"></img>
           ))}
         </S.ClubAnimation>
       </div>

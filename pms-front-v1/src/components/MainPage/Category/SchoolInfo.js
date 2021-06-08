@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FetchNotice } from "../../../utils/api/user";
 import * as S from "../style";
 
 const colorLists = [
@@ -8,11 +9,13 @@ const colorLists = [
 
 const SchoolInfo = () => {
   const [btnSelect, setBtnSelect] = useState(1);
-  const [buttonColor, setButtonColor] = useState("none");
 
   const backgroundColor = (list) => {
     setBtnSelect(list.id);
   };
+
+  //api
+  const fetchNotice = FetchNotice();
 
   return (
     <S.SchoolInfo>
@@ -35,11 +38,9 @@ const SchoolInfo = () => {
           </div>
         </S.ButtonItem>
         <S.InfoList>
-          <li>대덕어쩌고 저쩌고</li>
-          <li>대덕어쩌고 저쩌고</li>
-          <li>대덕어쩌고 저쩌고</li>
-          <li>대덕어쩌고 저쩌고</li>
-          <li>대덕어쩌고 저쩌고</li>
+          {fetchNotice?.map((notice, index) => (
+            <li key={index}>{notice.title}</li>
+          ))}
         </S.InfoList>
       </div>
     </S.SchoolInfo>

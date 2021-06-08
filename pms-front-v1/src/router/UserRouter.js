@@ -14,7 +14,16 @@ import {
   CreatorsInfo,
   ClubInfo,
   CompanyInfo,
+<<<<<<< Updated upstream
 } from "../components/index.js";
+=======
+  FamilyLetterWritten,
+  FamilyLetter,
+  Notice,
+  NoticeWritten,
+  MyPage
+} from "../components/index";
+>>>>>>> Stashed changes
 
 function UserRouter() {
   return (
@@ -30,6 +39,11 @@ function UserRouter() {
       <Route path="/creators-info" component={CreatorsInfo} exact />
       <Route path="/club-info" component={ClubInfo} exact />
       <Route path="/company-info" component={CompanyInfo} exact />
+      <Route path="/MyPage" component={MyPage} exact />
+      <Route path="/FamilyLetter" component={FamilyLetter} exact />
+      <Route path="/FamilyLetterWritten" component={FamilyLetterWritten} exact />
+      <Route path="/NoticeWritten" component={NoticeWritten} exact />
+      <Route path="/Notice" component={Notice} exact />
     </Switch>
   );
 }
