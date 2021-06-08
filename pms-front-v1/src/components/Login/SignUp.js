@@ -2,11 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import * as S from "./style";
 import { request } from "../../utils/axios/axios";
-
-import BackgroundTitle from "../BackgroundTitle";
-import SocialButton from "./SocialButton";
-import Footer from "../footer/Footer";
-import axios from "axios";
+import { BackgroundTitle, SocialButton, Footer } from "../index";
 
 function SignUp() {
   const [inputs, setInputs] = useState({
@@ -41,15 +37,7 @@ function SignUp() {
       alert("이메일을 다시 확인해주세요");
       console.log(e);
     }
-    /* try {
-      await axios.post("http://api.smooth-bear.live/user", {
-        email: email,
-        name: name,
-        password: password,
-      });
-    } catch (e) {
-      alert(e);
-    } */
+    
     setInputs({
       name: "",
       email: "",
@@ -68,7 +56,7 @@ function SignUp() {
         <S.MainItem onSubmit={handleSubmit}>
           <S.Title>
             <p>PMS 회원가입</p>
-            <Link to="/login">로그인 하기 > </Link>
+            <Link to="/login">로그인 하기 {">"} </Link>
           </S.Title>
           {/* 로그인 입력창 */}
           <S.LoginInput>
