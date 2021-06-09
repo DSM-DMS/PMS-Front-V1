@@ -35,6 +35,7 @@ const Title = styled.div`
 
 const MiddleWrapper = styled(SideWrapper)`
   width: 53%;
+  overflow: auto;
 `;
 
 //리스트들 묶음 스크롤 기능 있음
@@ -45,10 +46,11 @@ const ListWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   overflow: auto;
+  width: 90%;
 `;
 
 const Event = styled.div`
-  margin: 15px;
+  margin: 7%;
   width: 80%;
   height: 60px;
   background: #f6f6f6 0% 0% no-repeat padding-box;
@@ -56,11 +58,11 @@ const Event = styled.div`
   display: flex;
   align-items: center;
   flex-direction: row;
+  justify-content: space-between;
 `;
 
 const EventName = styled.div`
-  margin: 10px 20px;
-  width: 44%;
+  padding: 10px 20px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -74,7 +76,7 @@ const EventName = styled.div`
   span {
     margin-left: 10px;
     font-size: 14px;
-    //font-weight: 600;
+    font-weight: 600;
   }
 `;
 
@@ -85,9 +87,7 @@ const EventDate = styled.div`
   color: #7d7d7d;
   display: flex;
   align-items: center;
-  span {
-    margin: 16px;
-  }
+  width: 20%;
 `;
 
 //오늘의 급식
@@ -98,6 +98,8 @@ const SelectData = styled.span`
 `;
 
 const MealsList = styled.div`
+  cursor: pointer;
+  min-height: 280px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -108,9 +110,15 @@ const MealsList = styled.div`
   background: #f6f6f6 0% 0% no-repeat padding-box;
   border-radius: 30px;
   overflow: auto;
-  span {
-    margin: 3px;
+  & span {
+    margin: 7px;
     font-size: 18px;
+  }
+
+  & img {
+    display: none;
+    object-fit: cover;
+    width: 90%;
   }
 `;
 
