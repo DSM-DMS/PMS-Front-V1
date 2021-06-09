@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import * as S from "./style";
-import { request } from "../../utils/axios/axios";
 import { BackgroundTitle, SocialButton, Footer } from "../index";
+import { useDispatch } from "react-redux";
+import { registerUser } from "../../actions/userAction";
 
 function SignUp() {
+  const dispatch = useDispatch();
+
   const [inputs, setInputs] = useState({
     name: "",
     email: "",
@@ -27,25 +30,16 @@ function SignUp() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      await request("post", "/user", "", {
-        email,
-        name,
-        password,
-      });
-    } catch (e) {
-      alert("이메일을 다시 확인해주세요");
-      console.log(e);
-    }
-    
+    dispatch(registerUser(inputs))
+      .then((res) => console.log(res))
+      .catch((e) => console.log(e));
+
     setInputs({
       name: "",
       email: "",
       password: "",
       passwordCheck: "",
     });
-
-    console.log(inputs);
   };
 
   return (
