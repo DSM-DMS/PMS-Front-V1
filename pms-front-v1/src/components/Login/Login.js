@@ -2,13 +2,17 @@ import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import * as S from "./style";
 import { BackgroundTitle, SocialButton, Footer } from "../index";
-import { request } from "../../utils/axios/axios";
 import { LoginError } from "../../assets";
+import { useDispatch } from "react-redux";
+import { loginUser } from "../../actions/userAction";
 
 function Login() {
   const history = useHistory();
   const [errorIcon, setErrorIcon] = useState("none");
   const [borderBottom, setBorderBottom] = useState("");
+  const [width, setWidth] = useState("");
+
+  const dispatch = useDispatch();
 
   const [inputs, setInputs] = useState({
     email: "",
@@ -29,23 +33,18 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      const { data } = await request(
-        "post",
-        "/auth",
-        {},
-        {
-          email,
-          password,
-        }
-      );
-      localStorage.setItem("access-token", data["access-token"]);
-      history.push("/");
-    } catch (e) {
-      console.log(e);
-      setErrorIcon("flex");
-      setBorderBottom("2px solid #FF0000");
-    }
+    dispatch(loginUser(inputs))
+      .then((res) => {
+        console.log(res);
+        localStorage.setItem("access-token", res.payload.data["access-token"]);
+        history.push("/");
+      })
+      .catch((err) => {
+        console.log(err);
+        setErrorIcon("flex");
+        setBorderBottom("2px solid #FF0000");
+        setWidth("100%");
+      });
 
     setInputs({
       email: "",
@@ -87,12 +86,14 @@ function Login() {
                 ></input>
                 <img
                   style={{ display: errorIcon }}
-                  errorIcon={errorIcon}
                   src={LoginError}
                   alt="로그인 오류"
                 ></img>
               </div>
-              <span className="error-message" style={{ display: errorIcon }}>
+              <span
+                className="error-message"
+                style={{ width: width, display: errorIcon }}
+              >
                 이메일 혹은 비밀번호를 다시 입력해주세요.
               </span>
               <div className="auto-login">

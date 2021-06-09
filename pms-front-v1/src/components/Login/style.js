@@ -108,6 +108,10 @@ const InputWrapper = styled.div`
 
   .error-message {
     color: gray;
+    display: flex;
+
+    width: 0;
+    transition: all 0.5s;
   }
 
   .password-wrapper {
