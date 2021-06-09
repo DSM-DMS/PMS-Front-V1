@@ -335,6 +335,82 @@ const ClubAnimation = styled.div`
   }
 `;
 
+// 메인페이지 마이페이지
+const StudentContainer = styled.div`
+  width: 100%;
+  height: 500px;
+
+  .student-title {
+    font-size: 18px;
+  }
+`;
+
+const StudentNameScore = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .student-name-wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 320px;
+    height: 60px;
+    background: #ffffff 0% 0% no-repeat padding-box;
+    border-radius: 10px;
+    color: black;
+    margin-top: 12px;
+    align-items: center;
+    justify-content: space-between;
+
+    .student-name {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .arrow-img {
+      width: 20px;
+      margin-right: 5px;
+    }
+  }
+
+  .student-score-wrppaer {
+    width: 179px;
+    height: 214px;
+    background: #ffffff 0% 0% no-repeat padding-box;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: black;
+
+    > span {
+      font-size: 15px;
+      font-weight: bold;
+      margin: 15px;
+    }
+
+    .student-score {
+      display: flex;
+      flex-direction: row;
+
+      .circle {
+        margin-right: 5px;
+        width: 40px;
+        height: 40px;
+        border-radius: 100%;
+        background-color: #4775b2;
+        font-size: 18px;
+        font-weight: bold;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+`;
+
 export {
   MainWrapper,
   CodingImg,
@@ -359,4 +435,6 @@ export {
   DeveloperInfo,
   PMSInfo,
   ClubAnimation,
+  StudentContainer,
+  StudentNameScore,
 };
