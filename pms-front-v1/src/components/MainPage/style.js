@@ -9,24 +9,25 @@ import {
 } from "../../assets/index";
 
 const MainWrapper = styled.div`
-  width: 100%;
+  width: 100vw;
   height: 1350px;
 `;
 
 const CodingImg = styled.div`
-  //background-image: url(${MainBackground});
   width: 100%;
   height: 100%;
-  background-repeat: no-repeat;
-  overflow: hidden;
 
   .School-img {
+    position: absolute;
+    top: -155px;
     display: flex;
     flex-direction: row;
+    width: 300vw;
+
     > img {
-      position: absolute;
-      top: -155px;
-      overflow: hidden;
+      width: 100vw;
+      height: 780px;
+      object-fit: cover;
     }
   }
 
@@ -215,6 +216,12 @@ const StudentInfo = styled(SchoolInfo)`
     height: 147px;
     background-image: url(${MyPage});
   }
+
+  > img {
+    position: relative;
+    bottom: 117px;
+    margin-left: 15px;
+  }
 `;
 
 const LoginButton = styled.button`
@@ -353,7 +360,7 @@ const StudentNameScore = styled.div`
   .student-name-wrapper {
     display: flex;
     flex-direction: row;
-    width: 320px;
+    width: 335px;
     height: 60px;
     background: #ffffff 0% 0% no-repeat padding-box;
     border-radius: 10px;
@@ -370,10 +377,16 @@ const StudentNameScore = styled.div`
     .arrow-img {
       width: 20px;
       margin-right: 5px;
+      cursor: pointer;
+    }
+
+    .profile-img {
+      margin: 6px 0 0 7px;
     }
   }
 
   .student-score-wrppaer {
+    z-index: 1;
     width: 179px;
     height: 214px;
     background: #ffffff 0% 0% no-repeat padding-box;
@@ -394,8 +407,7 @@ const StudentNameScore = styled.div`
       display: flex;
       flex-direction: row;
 
-      .circle {
-        margin-right: 5px;
+      .point {
         width: 40px;
         height: 40px;
         border-radius: 100%;
