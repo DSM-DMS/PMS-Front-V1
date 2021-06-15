@@ -1,10 +1,16 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { Link, useHistory } from "react-router-dom";
+import { logoutUser } from "../../actions/userAction";
 import * as S from "./style";
 
 const Header = () => {
   const [display, setDisplay] = useState("none");
   const [hover, setHover] = useState("black");
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  const isAccessToken = localStorage.getItem("access-token");
 
   const mouseEvent = () => {
     setDisplay("flex");
@@ -14,7 +20,13 @@ const Header = () => {
   };
 
   const hoverEvent = () => {
-   setHover("#350871 ");
+    setHover("#350871 ");
+  };
+
+  //로그아웃
+  const logout = () => {
+    dispatch(logoutUser());
+    history.push("/");
   };
 
   return (
@@ -31,7 +43,13 @@ const Header = () => {
           소개
         </Link>
         <Link to="/my-mage">마이페이지</Link>
-        <Link to="/login">로그인</Link>
+        {isAccessToken ? (
+          <Link to="/" onClick={logout}>
+            로그아웃
+          </Link>
+        ) : (
+          <Link to="/login">로그인</Link>
+        )}
       </S.Nav>
       <ul
         id="headModal"
