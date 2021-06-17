@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FetchNotice } from "../../../utils/api/user";
+import { FetchNotice, FetchNoticeNews } from "../../../utils/api/user";
 import * as S from "../style";
 
 const colorLists = [
@@ -9,13 +9,23 @@ const colorLists = [
 
 const SchoolInfo = () => {
   const [btnSelect, setBtnSelect] = useState(1);
+  const uploadDate = "upload-date";
 
   const backgroundColor = (list) => {
     setBtnSelect(list.id);
   };
 
+  function textSlice(txt, len) {
+    if (txt.length > len) {
+      txt = txt.substr(0, len) + " ...";
+      console.log(txt);
+    }
+    return txt;
+  }
+
   //api
-  const fetchNotice = FetchNotice();
+  const fetchNotice = FetchNotice(0);
+  const fetchNoticeNews = FetchNoticeNews();
 
   return (
     <S.SchoolInfo>
@@ -38,9 +48,25 @@ const SchoolInfo = () => {
           </div>
         </S.ButtonItem>
         <S.InfoList>
-          {fetchNotice?.map((notice, index) => (
-            <li key={index}>{notice.title}</li>
-          ))}
+          {btnSelect === 1 ? (
+            <>
+              {fetchNoticeNews?.map((notice) => (
+                <li key={notice.id}>
+                  <span>{textSlice(notice.title, 30)}</span>
+                  <span>{notice[`${uploadDate}`]}</span>
+                </li>
+              ))}
+            </>
+          ) : (
+            <>
+              {fetchNotice?.map((notice) => (
+                <li key={notice.id}>
+                  <span>{textSlice(notice.title, 30)}</span>
+                  <span>{notice[`${uploadDate}`]}</span>
+                </li>
+              ))}
+            </>
+          )}
         </S.InfoList>
       </div>
     </S.SchoolInfo>
