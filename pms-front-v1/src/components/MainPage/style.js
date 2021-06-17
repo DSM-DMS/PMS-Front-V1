@@ -213,15 +213,25 @@ const MealMenu = styled.div`
   border-radius: 10px;
   width: 80%;
   height: 75%;
+  max-height: 75%;
+  min-height: 75%;
   background: #4b6d9a 0% 0% no-repeat padding-box;
   display: flex;
   justify-content: center;
+  overflow: auto;
 
   & ul {
-    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
     margin: 20px;
     font-size: 18px;
-    overflow: auto;
+  }
+
+  & li {
+    list-style: none;
   }
 `;
 
@@ -278,7 +288,7 @@ const ClubAnimation = styled.div`
   display: flex;
   flex-direction: row;
   margin: 30px;
-  transition:0.7s;
+  transition: 0.7s;
 
   img {
     width: 80px;
