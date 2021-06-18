@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import * as S from "./style";
-import { request } from "../../utils/axios/axios";
-
-import BackgroundTitle from "../BackgroundTitle";
-import SocialButton from "./SocialButton";
-import Footer from "../footer/Footer";
-import axios from "axios";
+import { BackgroundTitle, SocialButton, Footer } from "../index";
+import { useDispatch } from "react-redux";
+import { registerUser } from "../../actions/userAction";
 
 function SignUp() {
+  const dispatch = useDispatch();
+
   const [inputs, setInputs] = useState({
     name: "",
     email: "",
@@ -31,33 +30,16 @@ function SignUp() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      await request("post", "/user", "", {
-        email,
-        name,
-        password,
-      });
-    } catch (e) {
-      alert("이메일을 다시 확인해주세요");
-      console.log(e);
-    }
-    /* try {
-      await axios.post("http://api.smooth-bear.live/user", {
-        email: email,
-        name: name,
-        password: password,
-      });
-    } catch (e) {
-      alert(e);
-    } */
+    dispatch(registerUser(inputs))
+      .then((res) => console.log(res))
+      .catch((e) => console.log(e));
+
     setInputs({
       name: "",
       email: "",
       password: "",
       passwordCheck: "",
     });
-
-    console.log(inputs);
   };
 
   return (
@@ -68,7 +50,7 @@ function SignUp() {
         <S.MainItem onSubmit={handleSubmit}>
           <S.Title>
             <p>PMS 회원가입</p>
-            <Link to="/login">로그인 하기 > </Link>
+            <Link to="/login">로그인 하기 {">"} </Link>
           </S.Title>
           {/* 로그인 입력창 */}
           <S.LoginInput>

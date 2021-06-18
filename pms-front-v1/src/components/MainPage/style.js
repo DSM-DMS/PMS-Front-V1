@@ -134,6 +134,10 @@ const InfoList = styled.ul`
   list-style: none;
 
   > li {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     font-size: 16px;
     margin-top: 7px;
   }
@@ -147,6 +151,7 @@ const SchoolInfo = styled.div`
 `;
 
 const ClubInfo = styled(SchoolInfo)`
+  cursor: pointer;
   background-color: #56ad77;
   width: 20%;
   display: flex;
@@ -170,16 +175,34 @@ const ClubInfo = styled(SchoolInfo)`
     background-size: cover;
     background-image: url(${Company});
   }
+
+  & a {
+    text-decoration: none;
+    color: white;
+  }
 `;
 
 const CompanyInfo = styled(ClubInfo)`
   background-color: #56ad9e;
+
+  & a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
-const DMSInfo = styled(ClubInfo)`
+const DMSInfo = styled.a`
   background-image: url(${DMS});
   background-size: cover;
   background-repeat: no-repeat;
+
+  cursor: pointer;
+  background-color: #56ad77;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
 `;
 
 //두번째 카테고리 시작
@@ -232,6 +255,8 @@ const MealMenu = styled.div`
 
   & li {
     list-style: none;
+    margin: 2px;
+    text-align: center;
   }
 `;
 
@@ -257,10 +282,21 @@ const InfoWrapper = styled.div`
 `;
 
 const DeveloperInfo = styled.div`
+  cursor: pointer;
   height: 50%;
   background-color: #92b5f9;
   display: flex;
   flex-direction: row;
+
+  & a {
+    text-decoration: none;
+    display: flex;
+  }
+
+  & img {
+    position: relative;
+    bottom: -14px;
+  }
 
   .creators-info {
     width: 30%;
@@ -272,6 +308,7 @@ const DeveloperInfo = styled.div`
 
 const PMSInfo = styled(DeveloperInfo)`
   background-color: #2e3451;
+  cursor: unset;
 
   .pms-img {
     margin: 6%;
