@@ -1,6 +1,6 @@
 import React from 'react';
 import * as S from './style'
-import {RightPassword, WrongPassword} from '../../../assets'
+import {RightPassword, WrongPassword} from '../../../assets/index'
 
 function ChangePassword(){
     return(
