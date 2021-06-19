@@ -4,16 +4,13 @@ import { useHistory } from "react-router-dom";
 import { SchoolInfo, Meals, ClubCategory} from "../index";
 import CompanyInfo from "./Category/CompanyInfo";
 import { Info } from "../../assets/index";
+import Mypage from "./Category/Mypage";
 
 const Category = () => {
   const history = useHistory();
 
   const DMSClickHandler = () => {
     history.href("https://www.dsm-dms.com/");
-  };
-
-  const LoginBtnClick = () => {
-    history.push("/login");
   };
 
   return (
@@ -30,15 +27,7 @@ const Category = () => {
         </S.CategoryItem>
         {/* 마이페이지, 로그인 묶음 */}
         <S.CategoryItemBottom>
-          <S.StudentInfo>
-            <div className="container club">
-              <S.Title>마이페이지</S.Title>
-              <S.SubTitle>로그인 후 이용 가능합니다.</S.SubTitle>
-              <S.LoginButton onClick={LoginBtnClick}>로그인</S.LoginButton>
-            </div>
-            <div className="student-info-img"></div>
-          </S.StudentInfo>
-
+          <Mypage history={history} />
           <Meals />
           {/* 개발자 소개, PMS 소개  */}
           <S.InfoWrapper>

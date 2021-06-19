@@ -1,5 +1,4 @@
 * {
-  cursor: pointer;
   font-family: "Noto Sans KR", sans-serif;
   font-weight: lighter;
   margin: 0;
@@ -10,6 +9,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
 #modal {
   animation: modal-show 1s;
   /* animation: modal-bg-show 0.8s; */
@@ -96,7 +101,7 @@ code {
 
 .club {
   width: 90%;
-  height: 40%;
+  /* height: 40%; */
   margin-bottom: 7px;
 }
 

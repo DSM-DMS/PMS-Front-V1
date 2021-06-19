@@ -14,7 +14,7 @@ import {
   CreatorsInfo,
   ClubInfo,
   CompanyInfo,
-} from "../components/index.js";
+} from "../components/index";
 
 function UserRouter() {
   return (
