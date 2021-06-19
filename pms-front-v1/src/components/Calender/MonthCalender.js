@@ -2,19 +2,6 @@ import React, { useState } from "react";
 import * as S from "./style";
 import Calendar from "react-calendar";
 
-/* const MonthCalender = (props) => (
-  <div>
-    <Calendar
-      localizer={localizer}
-      events={myList}
-      startAccessor="start"
-      endAccessor="end"
-      style={{ height: 500 }}
-    />
-  </div>
-);
- */
-
 function MonthCalender(props) {
   const [value, onChange] = useState(new Date());
 
