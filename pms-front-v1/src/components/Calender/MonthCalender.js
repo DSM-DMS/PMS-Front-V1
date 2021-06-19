@@ -1,31 +1,7 @@
 import React, { useState } from "react";
 import * as S from "./style";
-//import Calendar from "react-calendar";
-import { Calendar, momentLocalizer } from "react-big-calendar";
-import "react-big-calendar/lib/css/react-big-calendar.css";
-import moment from "moment";
+import Calendar from "react-calendar";
 
-const localizer = momentLocalizer(moment);
-
-const myList = [
-  {
-    title: "Sdfsdf",
-  },
-];
-
-const MonthCalender = (props) => (
-  <div>
-    <Calendar
-      localizer={localizer}
-      events={myList}
-      startAccessor="start"
-      endAccessor="end"
-      style={{ height: 500 }}
-    />
-  </div>
-);
-
-/*
 function MonthCalender(props) {
   const [value, onChange] = useState(new Date());
 
@@ -45,17 +21,15 @@ function MonthCalender(props) {
     props.setDateChange(date);
   };
 
-
-
   return (
     <>
       <S.MiddleWrapper>
         <S.CalenderMain>
-          <Calendar value={value} onChange={onChange} onClickDay={callDay} /> 
+          <Calendar value={value} onChange={onChange} onClickDay={callDay} />
         </S.CalenderMain>
       </S.MiddleWrapper>
     </>
   );
-} */
+}
 
 export default MonthCalender;
