@@ -10,27 +10,19 @@ function MainPage() {
   const TOTAL_SLIDES = 1;
   const [currentSlider, setCurrentSlider] = useState(0);
   const sliderRef = useRef(null);
-
-  const nextSlider = () => {
-    //더이상 넘어갈 슬라이드가 없으면 초기화
-    if (currentSlider >= TOTAL_SLIDES) {
-      setCurrentSlider(0);
-    } else {
-      setCurrentSlider(currentSlider + 1);
-    }
-  };
-
-  const prevSlider = () => {
-    if (currentSlider === 0) {
-      setCurrentSlider(TOTAL_SLIDES);
-    } else {
-      setCurrentSlider(currentSlider - 1);
-    }
-  };
+  const [val, setVal] = useState(0);
 
   useEffect(() => {
-    sliderRef.current.style.transition = "all 0.5s ease-in-out";
+    sliderRef.current.style.transition = "all 1.5s ease-in-out";
     sliderRef.current.style.transform = `translateX(-${currentSlider}00%)`;
+
+    let i = 0;
+    setInterval(() => {
+      i++;
+      setVal(i);
+
+      if (i === 2) i = 0;
+    }, 7000);
   }, [currentSlider]);
 
   return (
@@ -38,14 +30,14 @@ function MainPage() {
       <S.MainWrapper>
         <Header />
         <S.CodingImg>
-          <div className="School-img" ref={sliderRef}>
+          <div
+            className="School-img"
+            ref={sliderRef}
+            style={{ transform: `translateX(${-val * 100}vw)` }}
+          >
             <img src={MainBackground} alt="슬라이드 배경"></img>
-            {/* <img src={Coding}></img> */}
             <img src={MainBackground} alt="슬라이드 배경"></img>
-          </div>
-          <div className="slide-button">
-            <button onClick={prevSlider}> 이전</button>
-            <button onClick={nextSlider}> 다음</button>
+            <img src={MainBackground} alt="슬라이드 배경"></img>
           </div>
           <div className="SchoolTitle" id="title-animation">
             <p className="bottomLine"></p>
