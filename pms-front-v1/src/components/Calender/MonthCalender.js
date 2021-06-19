@@ -22,11 +22,13 @@ function MonthCalender(props) {
   };
 
   return (
-    <S.MiddleWrapper>
-      <S.CalenderMain>
-        <Calendar value={value} onChange={onChange} onClickDay={callDay} />
-      </S.CalenderMain>
-    </S.MiddleWrapper>
+    <>
+      <S.MiddleWrapper>
+        <S.CalenderMain>
+          <Calendar value={value} onChange={onChange} onClickDay={callDay} />
+        </S.CalenderMain>
+      </S.MiddleWrapper>
+    </>
   );
 }
 
