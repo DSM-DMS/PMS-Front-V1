@@ -27,5 +27,3 @@ export { default as kakao } from "./kakao.svg";
 export { default as LoginError } from "./loginError.svg";
 export { default as Arrow } from "./Arrow.svg";
 export { default as WrongPassword } from "./WrongPassword.svg";
-export { default as AddChildren } from "./AddChildren.svg";
-
