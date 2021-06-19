@@ -12,7 +12,7 @@ function BackgroundTitle(props) {
   return (
     <S.BackgroundWrapper>
       <Header />
-      <S.TitleWrapper >
+      <S.TitleWrapper>
         <S.TopLine title={props.title} style={{ display: title }} />
         <S.Title style={{ display: title }}>{props.title}</S.Title>
       </S.TitleWrapper>
