@@ -1,133 +1,69 @@
-import React from "react";
+import React, { useState } from "react";
 import * as S from "../style";
-
-import BackgroundTitle from "../../BackgroundTitle";
-import Footer from "../../footer/Footer";
-import InfoHeader from "../InfoHeader";
-import InfoItemBox from "../InfoItemBox";
+import {
+  BackgroundTitle,
+  Footer,
+  InfoHeader,
+  InfoItemBox,
+  ClubDetailModal,
+} from "../../index";
+import { FetchClub, FetchClubDetail } from "../../../utils/api/user";
 
 function ClubInfo() {
-  const clubList = [
-    {
-      clubImg: "/PMS",
-      title: "DMS",
-      explanation: "기숙사 지원 시스템을 만들고 있습니다.",
-      resolution: " DSM학생들의 원활한 기숙사 생활을 위하여!",
-    },
-    {
-      clubImg: "/PMS",
-      title: "DMS",
-      explanation: "기숙사 지원 시스템을 만들고 있습니다.",
-      resolution: " DSM학생들의 원활한 기숙사 생활을 위하여!",
-    },
-    {
-      clubImg: "/PMS",
-      title: "DMS",
-      explanation: "기숙사 지원 시스템을 만들고 있습니다.",
-      resolution: " DSM학생들의 원활한 기숙사 생활을 위하여!",
-    },
-    {
-      clubImg: "/PMS",
-      title: "DMS",
-      explanation: "기숙사 지원 시스템을 만들고 있습니다.",
-      resolution: " DSM학생들의 원활한 기숙사 생활을 위하여!",
-    },
-    {
-      clubImg: "/PMS",
-      title: "DMS",
-      explanation: "기숙사 지원 시스템을 만들고 있습니다.",
-      resolution: " DSM학생들의 원활한 기숙사 생활을 위하여!",
-    },
-    {
-      clubImg: "/PMS",
-      title: "DMS",
-      explanation: "기숙사 지원 시스템을 만들고 있습니다.",
-      resolution: " DSM학생들의 원활한 기숙사 생활을 위하여!",
-    },
-    {
-      clubImg: "/PMS",
-      title: "DMS",
-      explanation: "기숙사 지원 시스템을 만들고 있습니다.",
-      resolution: " DSM학생들의 원활한 기숙사 생활을 위하여!",
-    },
-    {
-      clubImg: "/PMS",
-      title: "DMS",
-      explanation: "기숙사 지원 시스템을 만들고 있습니다.",
-      resolution: " DSM학생들의 원활한 기숙사 생활을 위하여!",
-    },
-    {
-      clubImg: "/PMS",
-      title: "DMS",
-      explanation: "기숙사 지원 시스템을 만들고 있습니다.",
-      resolution: " DSM학생들의 원활한 기숙사 생활을 위하여!",
-    },
-    {
-      clubImg: "/PMS",
-      title: "DMS",
-      explanation: "기숙사 지원 시스템을 만들고 있습니다.",
-      resolution: " DSM학생들의 원활한 기숙사 생활을 위하여!",
-    },
-    {
-      clubImg: "/PMS",
-      title: "DMS",
-      explanation: "기숙사 지원 시스템을 만들고 있습니다.",
-      resolution: " DSM학생들의 원활한 기숙사 생활을 위하여!",
-    },
-    {
-      clubImg: "/PMS",
-      title: "DMS",
-      explanation: "기숙사 지원 시스템을 만들고 있습니다.",
-      resolution: " DSM학생들의 원활한 기숙사 생활을 위하여!",
-    },
-    {
-      clubImg: "/PMS",
-      title: "DMS",
-      explanation: "기숙사 지원 시스템을 만들고 있습니다.",
-      resolution: " DSM학생들의 원활한 기숙사 생활을 위하여!",
-    },
-    {
-      clubImg: "/PMS",
-      title: "DMS",
-      explanation: "기숙사 지원 시스템을 만들고 있습니다.",
-      resolution: " DSM학생들의 원활한 기숙사 생활을 위하여!",
-    },
-    {
-      clubImg: "/PMS",
-      title: "DMS",
-      explanation: "기숙사 지원 시스템을 만들고 있습니다.",
-      resolution: " DSM학생들의 원활한 기숙사 생활을 위하여!",
-    },
-    {
-      clubImg: "/PMS",
-      title: "DMS",
-      explanation: "기숙사 지원 시스템을 만들고 있습니다.",
-      resolution: " DSM학생들의 원활한 기숙사 생활을 위하여!",
-    },
-    {
-      clubImg: "/PMS",
-      title: "DMS",
-      explanation: "기숙사 지원 시스템을 만들고 있습니다.",
-      resolution: " DSM학생들의 원활한 기숙사 생활을 위하여!",
-    },
-  ];
+  const [clubTitle, setClubTitle] = useState("");
+  const [modalBool, setModalBool] = useState(false);
+  const logo = "picture-uri";
+  const clubName = "club-name";
+
+  const ModalClose = () => {
+    setModalBool(false);
+  };
+
+  // 동아리 리스트 api
+  const fetchClub = FetchClub();
+
+  // 동아리 상세 api
+  const fetchClubDetail = FetchClubDetail(clubTitle);
+
+  const ModalControl = () => {
+    setModalBool(!modalBool);
+  };
+
   return (
-    <S.InfoMainWrapper>
-      <BackgroundTitle title="" />
-      <InfoHeader title="동아리 소개" placeholder="동아리를 입력해주세요" />
-      <S.ItemBoxWrapper>
-        {clubList.map((club) => {
-          return (
-            <InfoItemBox
-              title={club.title}
-              explanation={club.explanation}
-              resolution={club.resolution}
-            />
-          );
-        })}
-      </S.ItemBoxWrapper>
-      <Footer />
-    </S.InfoMainWrapper>
+    <>
+      {modalBool && (
+        <ClubDetailModal
+          titleName="동아리 소개"
+          modal={"flex"}
+          ModalClose={ModalClose}
+          clubName={fetchClubDetail?.title}
+          explanation={fetchClubDetail?.explanation}
+          img={fetchClubDetail?.uri}
+        />
+      )}
+
+      <S.InfoMainWrapper>
+        <BackgroundTitle title="" />
+        <InfoHeader title="동아리 소개" placeholder="동아리를 입력해주세요" />
+        <S.ItemBoxWrapper>
+          {fetchClub?.clubs.map((club, index) => {
+            return (
+              <>
+                <InfoItemBox
+                  key={index}
+                  setModalBool={ModalControl}
+                  setClubTitle={setClubTitle}
+                  clubImg={club[`${logo}`]}
+                  clubName={club[`${clubName}`]}
+                  explanation={club.explanation}
+                />
+              </>
+            );
+          })}
+        </S.ItemBoxWrapper>
+        <Footer />
+      </S.InfoMainWrapper>
+    </>
   );
 }
 

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const MainWrapper = styled.div`
-  height: 1230px;
+  height: 1100px;
   background: #f6f6f6 0% 0% no-repeat padding-box;
 `;
 
@@ -10,7 +10,7 @@ const LoginWrapper = styled.div`
   top: -7%;
   margin: 0 auto;
   width: 78%;
-  height: 800px;
+  height: 680px;
   background-color: white;
   box-shadow: 0px 5px 5px #00000029;
   display: flex;
@@ -18,7 +18,7 @@ const LoginWrapper = styled.div`
   align-items: center;
 `;
 
-const MainItem = styled.div`
+const MainItem = styled.form`
   margin: auto 0;
   width: 600px;
   height: 400px;
@@ -33,6 +33,7 @@ const Title = styled.div`
   flex-direction: column;
   align-items: center;
   font-weight: 600;
+
   p {
     font-size: 35px;
   }
@@ -57,7 +58,6 @@ const InputWrapper = styled.div`
   width: 50%;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
   border-right: 1.5px solid #9e9e9e;
 
@@ -73,7 +73,7 @@ const InputWrapper = styled.div`
   }
 
   button {
-    margin-top: 50px;
+    margin: 0 auto;
     width: 200px;
     height: 40px;
     background: #4c75b2 0% 0% no-repeat padding-box;
@@ -82,12 +82,10 @@ const InputWrapper = styled.div`
     outline: none;
     border: none;
     font-size: 16px;
-    //font-weight: 600;
   }
 
   //자동 로그인
   span {
-    margin: 0 0 5px 0;
     font-size: 15px;
   }
 
@@ -96,6 +94,9 @@ const InputWrapper = styled.div`
     align-items: center;
     width: 100%;
     color: #9e9e9e;
+    font-weight: 600;
+    margin-top: 5px;
+    margin-bottom: 50px;
   }
   .auto-login input {
     margin: 5px;
@@ -103,6 +104,35 @@ const InputWrapper = styled.div`
     height: 20px;
     border: 1px solid #c8c8c8;
     border-radius: 5px;
+  }
+
+  .error-message {
+    color: gray;
+    display: flex;
+
+    width: 0;
+    transition: all 0.5s;
+  }
+
+  .password-wrapper {
+    padding-left: 5px;
+    margin: 0 20px 15px 0;
+    border: 0;
+    border-bottom: 1px solid #c8c8c8;
+    outline: none;
+    width: 280px;
+    height: 30px;
+    font-size: 18px;
+    display: flex;
+    flex-direction: row;
+
+    & input {
+      padding: 0;
+    }
+
+    & img {
+      display: ${({ display }) => display};
+    }
   }
 `;
 
@@ -114,9 +144,29 @@ const SocialWrapper = styled.div`
 `;
 
 const LoginButton = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 15px;
   width: 240px;
   height: 40px;
-  border: ${({ LoginName }) => LoginName};
+
+  .social-img {
+    width: 48px;
+    height: 40px;
+    background-image: ${({ Socialimg }) => Socialimg};
+  }
+
+  .login-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    width: 100%;
+    height: 98%;
+    text-align: center;
+    background-color: ${({ LoginName }) => LoginName};
+  }
 `;
 
 export {

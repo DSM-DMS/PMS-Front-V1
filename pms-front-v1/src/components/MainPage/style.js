@@ -9,16 +9,35 @@ import {
 } from "../../assets/index";
 
 const MainWrapper = styled.div`
-  width: 100%;
+  width: 100vw;
   height: 1350px;
 `;
 
 const CodingImg = styled.div`
-  background-image: url(${MainBackground});
   width: 100%;
   height: 100%;
-  background-repeat: no-repeat;
-  overflow: auto;
+
+  .School-img {
+    position: absolute;
+    top: -155px;
+    display: flex;
+    flex-direction: row;
+    width: 300vw;
+
+    > img {
+      width: 100vw;
+      height: 780px;
+      object-fit: cover;
+    }
+  }
+
+  .slide-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    top: 530px;
+  }
 
   .SchoolTitle {
     position: relative;
@@ -28,7 +47,7 @@ const CodingImg = styled.div`
     color: white;
   }
   p {
-    margin: 20px;
+    margin-bottom: 20px;
     font-weight: 100;
     font-size: 25px;
   }
@@ -42,12 +61,15 @@ const CodingImg = styled.div`
     background: #ffffff;
     border-radius: 5px;
   }
+  .typist {
+    font-size: 20px;
+  }
 `;
 
 //카테고리
 const CategoryWrapper = styled.div`
   position: relative;
-  top: 30%;
+  top: 28%;
   margin: 0 auto;
   width: 78%;
   height: 575px;
@@ -87,15 +109,25 @@ const ButtonItem = styled.div`
   height: 30px;
   border-bottom: 0.5px solid white;
 
-  .button {
-    background-color: ${({ buttonColor }) => buttonColor};
-    border: 1px solid white;
-    > span {
-      color: ${({ buttonFont }) => buttonFont};
-      font-size: 14px;
-      margin: 5px;
-      font-weight: 100;
-    }
+  .button-cover {
+    border: 0.5px solid white;
+    margin: -1px;
+    width: 200px;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+
+  label {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  > span {
+    font-size: 14px;
+    font-weight: 100;
+    padding: 5px;
   }
 `;
 
@@ -103,6 +135,10 @@ const InfoList = styled.ul`
   list-style: none;
 
   > li {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     font-size: 16px;
     margin-top: 7px;
   }
@@ -116,8 +152,11 @@ const SchoolInfo = styled.div`
 `;
 
 const ClubInfo = styled(SchoolInfo)`
+  cursor: pointer;
   background-color: #56ad77;
   width: 20%;
+  display: flex;
+  flex-direction: column;
 
   .club {
     display: flex;
@@ -137,16 +176,34 @@ const ClubInfo = styled(SchoolInfo)`
     background-size: cover;
     background-image: url(${Company});
   }
+
+  & a {
+    text-decoration: none;
+    color: white;
+  }
 `;
 
 const CompanyInfo = styled(ClubInfo)`
   background-color: #56ad9e;
+
+  & a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
-const DMSInfo = styled(ClubInfo)`
+const DMSInfo = styled.a`
   background-image: url(${DMS});
   background-size: cover;
   background-repeat: no-repeat;
+
+  cursor: pointer;
+  background-color: #56ad77;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
 `;
 
 //두번째 카테고리 시작
@@ -158,6 +215,12 @@ const StudentInfo = styled(SchoolInfo)`
     width: 400px;
     height: 147px;
     background-image: url(${MyPage});
+  }
+
+  > img {
+    position: relative;
+    bottom: 117px;
+    margin-left: 15px;
   }
 `;
 
@@ -180,19 +243,44 @@ const MealMenu = styled.div`
   border-radius: 10px;
   width: 80%;
   height: 75%;
+  max-height: 75%;
+  min-height: 75%;
   background: #4b6d9a 0% 0% no-repeat padding-box;
   display: flex;
   justify-content: center;
+  overflow: auto;
 
   & ul {
-    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
     margin: 20px;
     font-size: 18px;
-    overflow: auto;
+  }
+
+  & li {
+    list-style: none;
+    margin: 2px;
+    text-align: center;
   }
 `;
 
-const MealButton = styled.div``;
+const MealButton = styled.div`
+  width: 100px;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+
+  > div {
+    width: 10px;
+    height: 10px;
+    border-radius: 50px;
+  }
+`;
 
 const InfoWrapper = styled.div`
   width: 40%;
@@ -201,10 +289,21 @@ const InfoWrapper = styled.div`
 `;
 
 const DeveloperInfo = styled.div`
+  cursor: pointer;
   height: 50%;
   background-color: #92b5f9;
   display: flex;
   flex-direction: row;
+
+  & a {
+    text-decoration: none;
+    display: flex;
+  }
+
+  & img {
+    position: relative;
+    bottom: -14px;
+  }
 
   .creators-info {
     width: 30%;
@@ -216,6 +315,7 @@ const DeveloperInfo = styled.div`
 
 const PMSInfo = styled(DeveloperInfo)`
   background-color: #2e3451;
+  cursor: unset;
 
   .pms-img {
     margin: 6%;
@@ -223,6 +323,103 @@ const PMSInfo = styled(DeveloperInfo)`
     height: 63%;
     background-image: url(${PMS});
     background-size: auto;
+  }
+`;
+
+const ClubAnimation = styled.div`
+  width: 104%;
+  min-height: 80px;
+  display: flex;
+  flex-direction: row;
+  margin: 30px;
+  transition: 0.7s;
+
+  img {
+    width: 80px;
+    height: 80px;
+    border-radius: 100px;
+    margin: 3px;
+  }
+`;
+
+// 메인페이지 마이페이지
+const StudentContainer = styled.div`
+  width: 100%;
+  height: 500px;
+
+  .student-title {
+    font-size: 18px;
+  }
+`;
+
+const StudentNameScore = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .student-name-wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 335px;
+    height: 60px;
+    background: #ffffff 0% 0% no-repeat padding-box;
+    border-radius: 10px;
+    color: black;
+    margin-top: 12px;
+    align-items: center;
+    justify-content: space-between;
+
+    .student-name {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .arrow-img {
+      width: 20px;
+      margin-right: 5px;
+      cursor: pointer;
+    }
+
+    .profile-img {
+      margin: 6px 0 0 7px;
+    }
+  }
+
+  .student-score-wrppaer {
+    z-index: 1;
+    width: 179px;
+    height: 214px;
+    background: #ffffff 0% 0% no-repeat padding-box;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: black;
+
+    > span {
+      font-size: 15px;
+      font-weight: bold;
+      margin: 15px;
+    }
+
+    .student-score {
+      display: flex;
+      flex-direction: row;
+
+      .point {
+        width: 40px;
+        height: 40px;
+        border-radius: 100%;
+        background-color: #4775b2;
+        font-size: 18px;
+        font-weight: bold;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
   }
 `;
 
@@ -249,4 +446,7 @@ export {
   InfoWrapper,
   DeveloperInfo,
   PMSInfo,
+  ClubAnimation,
+  StudentContainer,
+  StudentNameScore,
 };
